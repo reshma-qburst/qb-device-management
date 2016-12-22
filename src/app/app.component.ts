@@ -3,7 +3,7 @@ import { provideRoutes } from "@angular/router";
 
 @Component({
     selector: "my-app",
-    templateUrl: "./src/app/app.component.html"
+    templateUrl: "./app.component.html"
 })
 
 export class AppComponent implements OnInit {
