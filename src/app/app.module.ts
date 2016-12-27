@@ -11,12 +11,14 @@ import { UserDashboardComponent }  from "./userdashboard/userdashboard.component
 import { routing } from "./app.routing";
 
 import { HttpModule } from "@angular/http";
+import { AuthGuard } from "./guards/auth.guard";
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, routing, HttpModule, ReactiveFormsModule ],
   declarations: [ AppComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent],
   bootstrap:    [ AppComponent],
   providers: [
+  AuthGuard,
     { provide: APP_BASE_HREF, useValue: window["_app_base"] || "/" }
   ]
 })
