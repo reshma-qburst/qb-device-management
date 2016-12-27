@@ -14,8 +14,7 @@ export class LoginComponent implements OnInit {
   returnUrl: string;
   loginForm: FormGroup;
   user: [any];
-  invalidLogin: boolean = false;   
-
+  invalidLogin: boolean = false;
 constructor(
   private route: ActivatedRoute,
   private router: Router,
@@ -23,8 +22,8 @@ constructor(
   private formBuilder: FormBuilder) {
 
   this.loginForm = new FormGroup({
-      username: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required)
+      username: new FormControl("", Validators.required),
+      password: new FormControl("", Validators.required)
     });
   }
 
@@ -33,11 +32,11 @@ constructor(
       .subscribe(login => {
       this.login = login;
 
-      if(this.checkUser(value, login)) {
+      if (this.checkUser(value, login)) {
           this.invalidLogin = false;
-          if(this.user[0].role == "0"){
+          if (this.user[0].role === 0) {
             this.router.navigate(["/admindashboard"]);
-          }else if(this.user[0].role == "1"){
+          }else if (this.user[0].role === 1) {
             this.router.navigate(["/userdashboard"]);
           }
       }
@@ -48,16 +47,16 @@ constructor(
   }
 
   ngOnInit() {
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.returnUrl = this.route.snapshot.queryParams["returnUrl"] || "/";
   }
 
   checkUser(userValue, users) {
     this.user = users.filter(
       element => {
-        return element.username == userValue.username && element.password == userValue.password ;
+        return element.username === userValue.username && element.password === userValue.password ;
       });
       if (this.user.length)
-        return true;        
-  }
+        return true;
+      }
 
 }
