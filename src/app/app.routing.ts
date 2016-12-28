@@ -5,14 +5,15 @@ import { AdminDashboardComponent } from "./admindashboard/admindashboard.compone
 import { UserDashboardComponent } from "./userdashboard/userdashboard.component";
 
 import { AuthGuard } from "./guards/auth.guard";
+import { PreventLoggedInAccess } from "./guards/login.guard";
 
 const routes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
-  { path: "login", component: LoginComponent},
+  { path: "login", component: LoginComponent, canActivate: [PreventLoggedInAccess]},
   { path: "admindashboard", component: AdminDashboardComponent, canActivate: [AuthGuard]},
   { path: "userdashboard", component: UserDashboardComponent, canActivate: [AuthGuard]},
     // otherwise redirect to login
-  { path: "**", redirectTo: "/login" }
+  { path: "**", redirectTo: "/login"}
 ];
 
 export const routing = RouterModule.forRoot(routes);

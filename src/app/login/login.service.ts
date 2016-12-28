@@ -26,11 +26,6 @@ return this.http.get("../json/users.json")
 .map(response => response.json());
 }
 
- /*   logout() {
-        // remove user from local storage to log user out
-        localStorage.removeItem("currentUser");
-    }*/
-
 logout(): void {
     localStorage.removeItem("currentUser");
     this.isLoggedIn = false;

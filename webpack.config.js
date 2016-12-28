@@ -54,7 +54,7 @@ module.exports = function makeWebpackConfig() {
         exclude: root('src', 'app'),
         loader: isTest ? 'null-loader' : ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: ['css-loader', 'postcss-loader']})
       },
-
+      {test: /\.css$/, include: root('src', 'app'), loader: 'raw-loader!postcss-loader'},
       {test: /\.html$/, loader: 'raw-loader'}
     ]
   };

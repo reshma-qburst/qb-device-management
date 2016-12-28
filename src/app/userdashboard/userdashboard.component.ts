@@ -5,7 +5,8 @@ import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
 selector: "admindashboard",
-templateUrl: "./userdashboard.component.html"
+templateUrl: "./userdashboard.component.html",
+    styleUrls: ["./userdashboard.style.css"]
 })
 
 export class UserDashboardComponent {

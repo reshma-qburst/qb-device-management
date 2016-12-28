@@ -14,9 +14,8 @@ export class LoginComponent implements OnInit {
   returnUrl: string;
   loginForm: FormGroup;
   user: [any];
-  invalidLogin: boolean = false;   
-
-constructor(
+  invalidLogin: boolean = false;
+  constructor(
   private route: ActivatedRoute,
   private router: Router,
   private loginservice: LoginService,
@@ -34,7 +33,7 @@ constructor(
       this.login = login;
 
       if ( this.checkUser(value, login) ) {
-        localStorage.setItem("currentUser", "user");
+        localStorage.setItem("currentUser", JSON.stringify(this.user[0]));
           this.invalidLogin = false;
           if ( this.user[0].role === 0) {
             this.router.navigate(["/admindashboard"]);
