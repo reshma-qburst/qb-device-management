@@ -3,6 +3,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 /**
  * Env
@@ -47,6 +48,11 @@ module.exports = function makeWebpackConfig() {
         test: /\.ts$/,
         loaders: ['awesome-typescript-loader', 'angular2-template-loader', '@angularclass/hmr-loader'],
         exclude: [isTest ? /\.(e2e)\.ts$/ : /\.(spec|e2e)\.ts$/, /node_modules\/(?!(ng2-.+))/]
+      },
+      {
+        test: /\.css$/,
+        exclude: root('src', 'app'),
+        loader: isTest ? 'null-loader' : ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: ['css-loader', 'postcss-loader']})
       },
 
       {test: /\.html$/, loader: 'raw-loader'}
