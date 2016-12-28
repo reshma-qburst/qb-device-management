@@ -4,8 +4,8 @@ import { Component } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
-selector: "admindashboard",
-templateUrl: "./userdashboard.component.html",
+    selector: "admindashboard",
+    templateUrl: "./userdashboard.component.html",
     styleUrls: ["./userdashboard.style.css"]
 })
 

@@ -7,7 +7,8 @@ import { LoginService } from "./login.service";
 @Component({
   selector: "login",
   templateUrl: "./login.component.html",
-  providers: [ LoginService ]
+  providers: [ LoginService ],
+  styleUrls: ["./login.style.css"]
 })
 export class LoginComponent implements OnInit {
   model: any = {};
@@ -27,25 +28,28 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  login(value) {
-    this.loginservice.userLogin()
-      .subscribe(login => {
-      this.login = login;
-
-      if ( this.checkUser(value, login) ) {
-        localStorage.setItem("currentUser", JSON.stringify(this.user[0]));
-          this.invalidLogin = false;
-          if ( this.user[0].role === 0) {
-            this.router.navigate(["/admindashboard"]);
-          }else if ( this.user[0].role === 1) {
-            this.router.navigate(["/userdashboard"]);
-          }
-      }
-      else {
-          this.invalidLogin = true;
-      }
-    });
-  }
+  login(loginform) {
+    let value = loginform.value;
+    loginform.submitted = true;
+    if (loginform.valid) {
+        this.loginservice.userLogin()
+        .subscribe(login => {
+        this.login = login;
+        if ( this.checkUser(value, login) ) {
+          localStorage.setItem("currentUser", JSON.stringify(this.user[0]));
+            this.invalidLogin = false;
+            if ( this.user[0].role === 0) {
+              this.router.navigate(["/admindashboard"]);
+            }else if ( this.user[0].role === 1) {
+              this.router.navigate(["/userdashboard"]);
+            }
+        }
+        else {
+            this.invalidLogin = true;
+        }
+      });
+    }
+}
 
   ngOnInit() {
     this.returnUrl = this.route.snapshot.queryParams["returnUrl"] || "/";

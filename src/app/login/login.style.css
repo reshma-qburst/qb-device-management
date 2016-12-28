@@ -1,1 +1,46 @@
 /** Login Component Styles */
+.login_form_wrapper {
+	width: 30%;
+    display: block;
+    margin: 0 auto;
+}
+.invalid_login_msg {
+	position: relative;
+    top: -7px;
+    margin: 0;
+}
+.btn-login {
+	background: #e41d60;
+	border:0;
+	padding: 7px 22px;
+	color: #fff;
+	font-size: 16px;
+}
+.btn-login:focus {
+	outline: none;
+	border: 0;
+}
+.text-danger {
+	color: #ff0000;
+}
+.has-error .form-control {
+	border-color: #ff0000;
+}
+@media (max-width: 1024px) {
+	.login_form_wrapper {
+		width: 45%;
+	}
+}
+@media (max-width: 768px) {
+	.login_form_wrapper {
+		width: 75%;
+	}
+}
+@media (max-width: 480px) {
+	.login_form_wrapper {
+		width:100%;
+	}
+	.login_form_wrapper form {
+		padding: 0 15px;
+	}
+}
