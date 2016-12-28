@@ -3,6 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, Validators, FormGroup, FormControl } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
 import { LoginService } from "./login.service";
+import { LocalstorageService } from "./localstorage.service";
 
 @Component({
   selector: "login",
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
   private route: ActivatedRoute,
   private router: Router,
   private loginservice: LoginService,
-  private formBuilder: FormBuilder) {
+  private formBuilder: FormBuilder,
+  private localstorage: LocalstorageService) {
 
   this.loginForm = new FormGroup({
       username: new FormControl("", Validators.required),
@@ -33,7 +35,7 @@ export class LoginComponent implements OnInit {
       this.login = login;
 
       if ( this.checkUser(value, login) ) {
-        localStorage.setItem("currentUser", JSON.stringify(this.user[0]));
+        this.localstorage.setUser(this.user[0]);
           this.invalidLogin = false;
           if ( this.user[0].role === 0) {
             this.router.navigate(["/admindashboard"]);

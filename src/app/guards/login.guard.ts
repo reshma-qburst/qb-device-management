@@ -3,12 +3,14 @@
 import { Injectable } from "@angular/core";
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
 
+import { LocalstorageService } from "../login/localstorage.service";
+
 @Injectable()
 export class PreventLoggedInAccess implements CanActivate {
-    constructor(private router: Router) {}
+    constructor(private localstorage: LocalstorageService, private router: Router) {}
     canActivate() {
-        if (localStorage.getItem("currentUser")) {
-            let userData = JSON.parse(localStorage.getItem("currentUser"));
+        if (this.localstorage.getUser()) {
+            let userData = JSON.parse(this.localstorage.getUser());
             if (userData.role === 0) {
                 this.router.navigate(["/admindashboard"]);
             }else if (userData.role === 1) {
@@ -19,4 +21,4 @@ export class PreventLoggedInAccess implements CanActivate {
         else
             return true;
     }
-} 
+}
