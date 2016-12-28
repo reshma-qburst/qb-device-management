@@ -18,16 +18,20 @@ export class LoginComponent implements OnInit {
     user: [any];
     invalidLogin: boolean = false;
     constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private loginservice: LoginService,
-    private formBuilder: FormBuilder,
-    private localstorage: LocalstorageService) {
+        private route: ActivatedRoute,
+        private router: Router,
+        private loginservice: LoginService,
+        private formBuilder: FormBuilder,
+        private localstorage: LocalstorageService) {
         this.loginForm = new FormGroup({
             username: new FormControl("", Validators.required),
             password: new FormControl("", Validators.required)
             });
-        }
+        this.loginForm.valueChanges.subscribe(data => {
+            if (this.invalidLogin)
+                this.invalidLogin = false;
+        });
+    }
 
         login(loginform) {
             let value = loginform.value;
