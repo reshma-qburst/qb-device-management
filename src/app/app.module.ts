@@ -13,12 +13,16 @@ import { routing } from "./app.routing";
 import { HttpModule } from "@angular/http";
 import { AuthGuard } from "./guards/auth.guard";
 import { PreventLoggedInAccess } from "./guards/login.guard";
+import { LocalstorageService } from "./login/localstorage.service";
+
+
 @NgModule({
   imports:      [ BrowserModule, FormsModule, routing, HttpModule, ReactiveFormsModule ],
   declarations: [ AppComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent],
   bootstrap:    [ AppComponent],
   providers: [
   AuthGuard, PreventLoggedInAccess,
+  LocalstorageService,
     { provide: APP_BASE_HREF, useValue: window["_app_base"] || "/" }
   ]
 })
