@@ -14,7 +14,8 @@ export class LoginComponent implements OnInit {
   returnUrl: string;
   loginForm: FormGroup;
   user: [any];
-  invalidLogin: boolean = false;
+  invalidLogin: boolean = false;   
+
 constructor(
   private route: ActivatedRoute,
   private router: Router,
@@ -33,6 +34,7 @@ constructor(
       this.login = login;
 
       if ( this.checkUser(value, login) ) {
+        localStorage.setItem("currentUser", "user");
           this.invalidLogin = false;
           if ( this.user[0].role === 0) {
             this.router.navigate(["/admindashboard"]);
@@ -56,7 +58,7 @@ constructor(
         return element.username === userValue.username && element.password === userValue.password ;
       });
       if (this.user.length)
-
-        return true;          }
+        return true;        
+  }
 
 }

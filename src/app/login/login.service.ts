@@ -32,6 +32,7 @@ return this.http.get("../json/users.json")
     }*/
 
 logout(): void {
+    localStorage.removeItem("currentUser");
     this.isLoggedIn = false;
 }
 }

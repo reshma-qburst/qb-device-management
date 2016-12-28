@@ -1,15 +1,15 @@
 // Admin Dashboard component
 
 import { Component, OnInit } from "@angular/core";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
-	selector: "admindashboard",
-	templateUrl: "./admindashboard.component.html"
+    selector: "admindashboard",
+    templateUrl: "./admindashboard.component.html"
 })
 
 export class AdminDashboardComponent  {
-	
-    constructor() {
+    constructor(private router: Router) {
 
     }
  
@@ -23,4 +23,9 @@ export class AdminDashboardComponent  {
  
     private loadAllUsers() {
     }
+    logout() {
+        localStorage.removeItem("currentUser");
+        // this.isLoggedIn = false;
+        this.router.navigate(["/"]);
+    }
 }
