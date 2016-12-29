@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 import { LocalstorageService } from "./login/localstorage.service";
 
 @Component({
-    selector: "my-app",
+    selector: "main-content-area",
     encapsulation: ViewEncapsulation.None,
     templateUrl: "./app.component.html",
     styleUrls: ["./app.style.css"]

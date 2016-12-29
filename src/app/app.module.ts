@@ -16,10 +16,11 @@ import { HttpModule } from "@angular/http";
 import { AuthGuard } from "./guards/auth.guard";
 import { PreventLoggedInAccess } from "./guards/login.guard";
 import { LocalstorageService } from "./login/localstorage.service";
+import { AccountSettingsComponent } from "./accountsettings/accountsettings.component";
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, routing, HttpModule, ReactiveFormsModule ],
-  declarations: [ AppComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent, HeaderComponent, FooterComponent],
+  declarations: [ AppComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent, AccountSettingsComponent, HeaderComponent, FooterComponent],
   bootstrap:    [ AppComponent],
   providers: [
   AuthGuard, PreventLoggedInAccess,

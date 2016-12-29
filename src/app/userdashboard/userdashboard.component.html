@@ -2,13 +2,14 @@
 <div class="admin-dashboard-wrapper">
     <h1>Dashboard - User</h1>
     <div>
-        <h1>Hi !</h1>
+        <h2>Hi {{userName}}!</h2>
         <nav>
             <ul>
+                <li><a routerLink="/userdashboard">Dashboard</a></li>
                 <li><a href="#">Search</a></li>
                 <li><a href="#">Device Allocation</a></li>
                 <li><a href="#">Report Damage</a></li>
-                <li><a href="#">Account Settings</a></li>
+                <li><a routerLink="/accountsettings">Account Settings</a></li>
             </ul>
         </nav>
         <article>

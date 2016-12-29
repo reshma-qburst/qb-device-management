@@ -1,7 +1,4 @@
 /** styles */
-.dm_link {
-	cursor: pointer;
-}
 html {
 	height: 100%;
 }
@@ -12,4 +9,7 @@ body {
 }
 main {
 	padding: 15px 0;
+}
+footer {
+	font-size: 12px;
 }

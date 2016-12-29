@@ -1,4 +1,5 @@
-// Login component
+// Login component.
+
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, Validators, FormGroup, FormControl } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
