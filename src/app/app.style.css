@@ -29,3 +29,7 @@ main {
 footer {
 	font-size: 12px;
 }
+.logout_link {
+	float: right;
+    margin: -30px 75px;
+}

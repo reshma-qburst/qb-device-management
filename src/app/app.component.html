@@ -2,7 +2,7 @@
 	<div class="container">
 		<a routerLink="/"><img src="./images/QBlogo.svg" alt="logo"></a>
 	</div>
-	<p *ngIf="isUserLoggedIn"><a (click)="logout()" class="dm_link">Logout</a></p>
+	<p *ngIf="isUserLoggedIn" class="logout_link"><a (click)="logout()" class="dm_link">Logout</a></p>
 </header>
 <main>
   <router-outlet></router-outlet>
