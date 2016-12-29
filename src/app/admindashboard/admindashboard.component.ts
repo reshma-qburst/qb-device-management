@@ -24,9 +24,4 @@ export class AdminDashboardComponent  {
  
     private loadAllUsers() {
     }
-    logout() {
-        localStorage.removeItem("currentUser");
-        // this.isLoggedIn = false;
-        this.router.navigate(["/"]);
-    }
 }

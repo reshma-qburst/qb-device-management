@@ -11,8 +11,4 @@ import { Router, ActivatedRoute } from "@angular/router";
 
 export class UserDashboardComponent {
     constructor(private router: Router) {}
-logout() {
-        localStorage.removeItem("currentUser");
-        this.router.navigate(["/"]);
-    }
 } 
