@@ -5,6 +5,8 @@ import { APP_BASE_HREF, Location } from "@angular/common";
 import { ReactiveFormsModule } from "@angular/forms";
 
 import { AppComponent }  from "./app.component";
+import { HeaderComponent }  from "./shared/header/header.component";
+import { FooterComponent }  from "./shared/footer/footer.component";
 import { LoginComponent }  from "./login/login.component";
 import { AdminDashboardComponent }  from "./admindashboard/admindashboard.component";
 import { UserDashboardComponent }  from "./userdashboard/userdashboard.component";
@@ -15,10 +17,9 @@ import { AuthGuard } from "./guards/auth.guard";
 import { PreventLoggedInAccess } from "./guards/login.guard";
 import { LocalstorageService } from "./login/localstorage.service";
 
-
 @NgModule({
   imports:      [ BrowserModule, FormsModule, routing, HttpModule, ReactiveFormsModule ],
-  declarations: [ AppComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent],
+  declarations: [ AppComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent, HeaderComponent, FooterComponent],
   bootstrap:    [ AppComponent],
   providers: [
   AuthGuard, PreventLoggedInAccess,

@@ -1,1 +1,7 @@
 <!-- Header Component Template -->
+<header>
+	<div class="container">
+		<a routerLink="/"><img src="./images/QBlogo.svg" alt="logo"></a>
+	</div>
+	<p *ngIf="localstorage.getUser()"><a (click)="logout()" class="dm_link">Logout</a></p>
+</header>
