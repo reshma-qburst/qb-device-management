@@ -18,7 +18,7 @@ isLoggedIn: boolean = false;
   redirectUrl: string;
 
 constructor(private http: Http) {
-console.log("Service Initialised");
+
 }
 
 userLogin() {

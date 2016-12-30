@@ -37,8 +37,10 @@ returnUrl: string;
     }
 
 	changepassword(accountsettings) {
-		console.log(accountsettings);
 		accountsettings.submitted = true;
-		this.localstorage.getUser();
+		let value = accountsettings.value;
+		if (accountsettings.valid) {
+                
+        }
 	}
 }

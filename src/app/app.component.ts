@@ -13,20 +13,7 @@ import { LocalstorageService } from "./login/localstorage.service";
 export class AppComponent implements OnInit {
   public isUserLoggedIn: boolean = false;
   constructor(private localstorage: LocalstorageService, private router: Router) {
-    // this.isLoggedIn();
   }
 
-  ngOnInit() {
-
-  }
-
-  // isLoggedIn() {
-  //   if (this.localstorage.getUser()) {
-  //     this.isUserLoggedIn = true;
-  //   }else {
-  //     this.isUserLoggedIn = false;
-  //   }
-  // }
-
-
+  ngOnInit() {}
 }
