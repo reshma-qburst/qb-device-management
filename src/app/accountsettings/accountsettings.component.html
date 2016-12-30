@@ -18,23 +18,27 @@
                     <label for="oldpassword">Current Password:</label>
                     <input type="password" class="form-control" [formControl]="accountsettings.controls['oldpassword']" required autofocus/>
                     <p *ngIf="accountsettings.submitted && accountsettings.controls['oldpassword'].hasError('required')" class="text-danger">Enter your old password</p>
+                    <p *ngIf="accountsettings.submitted && accountsettings.oldpasswordMismatch && !accountsettings.controls['oldpassword'].hasError('required')" class="text-danger">Please enter correct password</p>
                 </div>
                 <div class="form-group" [ngClass]="{'has-error': accountsettings.submitted && !accountsettings.controls['newpassword'].valid}">
                     <label for="newpassword">New Password:</label>
                     <input type="password" class="form-control" [formControl]="accountsettings.controls['newpassword']" minlength="3" required/>
                     <p *ngIf="accountsettings.submitted && accountsettings.controls['newpassword'].hasError('required')" class="text-danger">Enter your new password</p>
                     <p *ngIf="accountsettings.submitted && accountsettings.controls['newpassword'].hasError('minlength')" class="text-danger">Password should be atleast 3 characters</p>
+                    <p *ngIf="accountsettings.submitted && accountsettings.newpasswordSameAsOld && !accountsettings.controls['newpassword'].hasError('required')" class="text-danger">New password should be different from old!</p>
                 </div>
                 <div class="form-group" [ngClass]="{'has-error': accountsettings.submitted && !accountsettings.controls['confirmpassword'].valid}">
                     <label for="confirmpassword">Confirm Password:</label>
-                    <input type="password" class="form-control" [formControl]="accountsettings.controls['confirmpassword']" minlength="3" required/>
-                    <p *ngIf="accountsettings.submitted && accountsettings.controls['confirmpassword'].hasError('required')" class="text-danger">Re-enter password</p>
+                    <input type="password" class="form-control" [formControl]="accountsettings.controls['confirmpassword']" minlength="3" required validateEqual="newpassword" />
+                    <p *ngIf="accountsettings.submitted && accountsettings.controls['confirmpassword'].hasError('required')" class="text-danger">Password required</p>
                     <p *ngIf="accountsettings.submitted && accountsettings.controls['confirmpassword'].hasError('minlength')" class="text-danger">Password should be atleast 3 characters</p>
-                    <p *ngIf="accountsettings.submitted && accountsettings.controls['confirmpassword'].hasError('minlength')" class="text-danger">Passwords should match</p>
+                    <p></p>
+                    <p *ngIf="accountsettings.submitted && accountsettings.newpasswordAndConfirmPassword && !accountsettings.controls['confirmpassword'].hasError('required') && !accountsettings.controls['confirmpassword'].hasError('minlength')" class="text-danger">Password mismatch!</p>
                 </div>
                 <p *ngIf="invalidLogin" class="text-danger invalid_password_msg">Please Enter Valid Credentials</p>
                 <div class="form-group">
                     <button type="submit" class="btn btn-save">Save</button>
+                    <button type="button" (click)="clearFields(accountsettings);" class="btn btn-save">Cancel</button>
                 </div>
             </form>
         </div>
