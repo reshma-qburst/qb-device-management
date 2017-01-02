@@ -1,7 +1,7 @@
 // Admin Dashboard component
 
 import { Component, OnInit } from "@angular/core";
-import { Router, ActivatedRoute } from "@angular/router";
+import { Router } from "@angular/router";
 
 @Component({
     selector: "admindashboard",
@@ -9,19 +9,10 @@ import { Router, ActivatedRoute } from "@angular/router";
     styleUrls: ["./admindashboard.style.css"]
 })
 
-export class AdminDashboardComponent  {
-    constructor(private router: Router) {
+export class AdminDashboardComponent {
+    constructor(private router: Router) { 
 
-    }
+}
  
-    ngOnInit() {
-        this.loadAllUsers();
-    }
- 
-    deleteUser() {
-        
-    }
- 
-    private loadAllUsers() {
-    }
+    ngOnInit() { }
 }

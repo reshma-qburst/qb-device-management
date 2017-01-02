@@ -1,0 +1,65 @@
+[{
+    "asset_id": 1,
+    "asset_name": "Samsung Galaxy Ace S5830",
+    "asset_type_id": "DROID-1",
+    "asset_type": "Android Phone",
+    "asset_code": "QB/DROID/1",
+    "availability_id": 0,
+    "availability": "In Shelf"
+}, {
+    "asset_id": 2,
+    "asset_name": "Samsung Galaxy Ace S5830",
+    "asset_type_id": "DROID-1",
+    "asset_type": "Android Phone",
+    "asset_code": "QB/DROID/2",
+    "availability_id": 0,
+    "availability": "In Shelf"
+}, {
+    "asset_id": 3,
+    "asset_name": "IPOD (QMC032)",
+    "asset_type_id": "IPOD-1",
+    "asset_type": "IPOD",
+    "asset_code": "QMC032",
+    "availability_id": 1,
+    "availability": "Rekha"
+}, {
+    "asset_id": 4,
+    "asset_name": "iPhone 6 Plus",
+    "asset_type_id": "IPH-1",
+    "asset_type": "iPhone",
+    "asset_code": "QB/IPH/1",
+    "availability_id": 0,
+    "availability": "In Shelf"
+}, {
+    "asset_id": 5,
+    "asset_name": "iPhone 6 Plus",
+    "asset_type_id": "IPH-1",
+    "asset_type": "iPhone",
+    "asset_code": "QB/IPH/2",
+    "availability_id": 0,
+    "availability": "In Shelf"
+}, {
+    "asset_id": 6,
+    "asset_name": "iPhone 6 Plus",
+    "asset_type_id": "IPH-1",
+    "asset_type": "iPhone",
+    "asset_code": "QB/IPH/3",
+    "availability_id": 1,
+    "availability": "Rekha"
+}, {
+    "asset_id": 7,
+    "asset_name": "Samsung Galaxy S7",
+    "asset_type_id": "DROID-2",
+    "asset_type": "Android Phone",
+    "asset_code": "QB/DROID/71",
+    "availability_id": 0,
+    "availability": "In Shelf"
+}, {
+    "asset_id": 8,
+    "asset_name": "MICROMAX Funbook",
+    "asset_type_id": "DROIDTAB-1",
+    "asset_type": "Android Tablet",
+    "asset_code": "QB/DROIDTAB/9",
+    "availability_id": 1,
+    "availability": "Shahina"
+}]

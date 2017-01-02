@@ -22,6 +22,9 @@ returnUrl: string;
 		private router: Router,
 		private formBuilder: FormBuilder,
 		private localstorage: LocalstorageService) {
+		
+    }
+    ngOnInit() {
 		this.accountsettings = new FormGroup({
             oldpassword: new FormControl("", Validators.required),
             newpassword: new FormControl("", Validators.required),
@@ -31,13 +34,10 @@ returnUrl: string;
             if (this.invalidLogin)
                 this.invalidLogin = false;
         });
-    }
-    ngOnInit() {
-		this.returnUrl = this.route.snapshot.queryParams["returnUrl"] || "/accountsettings";
+        this.returnUrl = this.route.snapshot.queryParams["returnUrl"] || "/accountsettings";
     }
 
 	changepassword(accountsettings) {
-		console.log(accountsettings);
 		accountsettings.submitted = true;
 		this.localstorage.getUser();
 	}

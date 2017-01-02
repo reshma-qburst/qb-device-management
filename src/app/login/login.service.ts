@@ -17,9 +17,7 @@ isLoggedIn: boolean = false;
 // store the URL so we can redirect after logging in
   redirectUrl: string;
 
-constructor(private http: Http) {
-console.log("Service Initialised");
-}
+constructor(private http: Http) { }
 
 userLogin() {
 return this.http.get("../json/users.json")

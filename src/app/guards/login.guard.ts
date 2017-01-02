@@ -1,7 +1,7 @@
 // Prevent loggedin users from accessing login route.
 
 import { Injectable } from "@angular/core";
-import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
+import { Router, CanActivate, RouterStateSnapshot } from "@angular/router";
 
 import { LocalstorageService } from "../login/localstorage.service";
 

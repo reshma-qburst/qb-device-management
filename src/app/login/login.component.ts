@@ -1,8 +1,8 @@
 // Login component.
 
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, Validators, FormGroup, FormControl } from "@angular/forms";
-import { Router, ActivatedRoute } from "@angular/router";
+import { Validators, FormGroup, FormControl } from "@angular/forms";
+import { Router } from "@angular/router";
 import { LoginService } from "./login.service";
 import { LocalstorageService } from "./localstorage.service";
 
@@ -19,10 +19,8 @@ export class LoginComponent implements OnInit {
     user: [any];
     invalidLogin: boolean = false;
     constructor(
-        private route: ActivatedRoute,
         private router: Router,
         private loginservice: LoginService,
-        private formBuilder: FormBuilder,
         private localstorage: LocalstorageService) {
         this.loginForm = new FormGroup({
             username: new FormControl("", Validators.required),
@@ -34,12 +32,14 @@ export class LoginComponent implements OnInit {
         });
     }
 
-        login(loginform) {
-            let value = loginform.value;
-            loginform.submitted = true;
-            if (loginform.valid) {
-                this.loginservice.userLogin()
-                .subscribe(login => {
+    ngOnInit() { }
+
+    login(loginform) {
+        let value = loginform.value;
+        loginform.submitted = true;
+        if (loginform.valid) {
+            this.loginservice.userLogin()
+               .subscribe(login => {
                     this.login = login;
                     if ( this.checkUser(value, login) ) {
                         this.localstorage.setUser(this.user[0]);
@@ -53,18 +53,16 @@ export class LoginComponent implements OnInit {
                     else {
                         this.invalidLogin = true;
                     }
-                });
-            }
+            });
         }
-        ngOnInit() {
-            this.returnUrl = this.route.snapshot.queryParams["returnUrl"] || "/";
-        }
-        checkUser(userValue, users) {
-            this.user = users.filter(
-                element => {
-                    return element.username === userValue.username && element.password === userValue.password ;
-                });
-            if (this.user.length)
-                return true;
-        }
+    }
+
+    checkUser(userValue, users) {
+        this.user = users.filter(
+            element => {
+                return element.username === userValue.username && element.password === userValue.password ;
+            });
+        if (this.user.length)
+            return true;
+    }
 }

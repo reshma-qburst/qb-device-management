@@ -1,0 +1,57 @@
+[{
+    "charger_id": 1,
+    "charger_name": "Charger (Android)",
+    "charger_code_id": "CGR-1",
+    "charger_code": "QB/CGR/1",
+    "availability_id": 0,
+    "availability": "In Shelf"
+}, {
+    "charger_id": 2,
+    "charger_name": "Charger (Android)",
+    "charger_code_id": "CGR-2",
+    "charger_code": "QB/CGR/2",
+    "availability_id": 0,
+    "availability": "In Shelf"
+}, {
+    "charger_id": 3,
+    "charger_name": "Charger (iOS)",
+    "charger_code_id": "CGR-5",
+    "charger_code": "QB/CGR/5",
+    "availability_id": 1,
+    "availability": "Rekha"
+}, {
+    "charger_id": 4,
+    "charger_name": "Charger (iOS)",
+    "charger_code_id": "CGR-6",
+    "charger_code": "QB/CGR/6",
+    "availability_id": 0,
+    "availability": "In Shelf"
+}, {
+    "charger_id": 5,
+    "charger_name": "Charger (iOS)",
+    "charger_code_id": "CGR-7",
+    "charger_code": "QB/CGR/7",
+    "availability_id": 0,
+    "availability": "In Shelf"
+}, {
+    "charger_id": 6,
+    "charger_name": "Connector Android(30 pin)",
+    "charger_code_id": "CC-1",
+    "charger_code": "QB/CC/1",
+    "availability_id": 0,
+    "availability": "In Shelf"
+}, {
+    "charger_id": 7,
+    "charger_name": "Connector iOS (Lightning)",
+    "charger_code_id": "CC-2",
+    "charger_code": "QB/CC/1",
+    "availability_id": 0,
+    "availability": "In Shelf"
+}, {
+    "charger_id": 8,
+    "charger_name": "Connector Andoid (Micro)",
+    "charger_code_id": "CC-3",
+    "charger_code": "QB/CC/3",
+    "availability_id": 1,
+    "availability": "Shahina"
+}]
