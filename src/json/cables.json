@@ -18,7 +18,7 @@
     "charger_code_id": "CGR-5",
     "charger_code": "QB/CGR/5",
     "availability_id": 1,
-    "availability": "Rekha"
+    "availability": "rekhar@qburst.com"
 }, {
     "charger_id": 4,
     "charger_name": "Charger (iOS)",
@@ -53,5 +53,5 @@
     "charger_code_id": "CC-3",
     "charger_code": "QB/CC/3",
     "availability_id": 1,
-    "availability": "Shahina"
+    "availability": "shahina@qburst.com"
 }]

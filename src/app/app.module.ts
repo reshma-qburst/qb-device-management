@@ -15,14 +15,18 @@ import { AuthGuard } from "./guards/auth.guard";
 import { PreventLoggedInAccess } from "./guards/login.guard";
 import { LocalstorageService } from "./login/localstorage.service";
 import { AccountSettingsComponent } from "./accountsettings/accountsettings.component";
+import { AdminDashboardService } from "./admindashboard/admindashboard.service";
+
+import { DataTableModule, SharedModule } from "primeng/primeng";
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, routing, HttpModule, ReactiveFormsModule ],
+  imports:      [ BrowserModule, FormsModule, routing, HttpModule, ReactiveFormsModule, DataTableModule, SharedModule ],
   declarations: [ AppComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent, AccountSettingsComponent],
   bootstrap:    [ AppComponent],
   providers: [
   AuthGuard, PreventLoggedInAccess,
   LocalstorageService,
+  AdminDashboardService,
     { provide: APP_BASE_HREF, useValue: window["_app_base"] || "/" }
   ]
 })

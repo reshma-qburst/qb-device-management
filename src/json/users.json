@@ -1,21 +1,19 @@
-[		
-	{ 
-		"id": 1,
-		"role": 0,
-		"username": "Reshma",
-		"email": "reshma@qburst.com",
-		"password": "reshma"
-	}, {
-        "id": 2,
-        "role": 1,
-        "username": "Rekha",
-        "email": "rekha@qburst.com",
-        "password": "rekha"
-    }, {
-        "id": 3,
-        "role": 1,
-        "username": "Shahina",
-        "email": "shahina@qburst.com",
-        "password": "shahina"
-    }
-]
+[{
+    "id": 1,
+    "role": 0,
+    "username": "Reshma",
+    "email": "reshma@qburst.com",
+    "password": "reshma"
+}, {
+    "id": 2,
+    "role": 1,
+    "username": "Rekha",
+    "email": "rekhar@qburst.com",
+    "password": "rekha"
+}, {
+    "id": 3,
+    "role": 1,
+    "username": "Shahina",
+    "email": "shahina@qburst.com",
+    "password": "shahina"
+}]

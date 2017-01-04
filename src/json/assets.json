@@ -21,7 +21,7 @@
     "asset_type": "IPOD",
     "asset_code": "QMC032",
     "availability_id": 1,
-    "availability": "Rekha"
+    "availability": "rekhar@qburst.com"
 }, {
     "asset_id": 4,
     "asset_name": "iPhone 6 Plus",
@@ -45,7 +45,7 @@
     "asset_type": "iPhone",
     "asset_code": "QB/IPH/3",
     "availability_id": 1,
-    "availability": "Rekha"
+    "availability": "rekhar@qburst.com"
 }, {
     "asset_id": 7,
     "asset_name": "Samsung Galaxy S7",
@@ -61,5 +61,5 @@
     "asset_type": "Android Tablet",
     "asset_code": "QB/DROIDTAB/9",
     "availability_id": 1,
-    "availability": "Shahina"
+    "availability": "shahina@qburst.com"
 }]
