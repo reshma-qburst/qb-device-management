@@ -14,7 +14,6 @@ import { LocalstorageService } from "../login/localstorage.service";
 export class AccountSettingsComponent implements OnInit {
 
 accountsettings: FormGroup;
-invalidLogin: boolean = false;
 returnUrl: string;
 
     constructor(
@@ -27,10 +26,6 @@ returnUrl: string;
             newpassword: new FormControl("", Validators.required),
             confirmpassword: new FormControl("", Validators.required)
             });
-        this.accountsettings.valueChanges.subscribe(data => {
-            if (this.invalidLogin)
-                this.invalidLogin = false;
-        });
     }
     ngOnInit() {
 		this.returnUrl = this.route.snapshot.queryParams["returnUrl"] || "/accountsettings";

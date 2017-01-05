@@ -15,6 +15,10 @@ export class AuthGuard implements CanActivate {
                 return true;
             }else if (userData.role === 1 && state.url === "/userdashboard") {
                 return true;
+            }else if (userData.role === 0 && state.url === "/adddevice") {
+                return true;
+            }else if (userData.role === 0 && state.url === "/accountsettings") {
+                return true;
             }
         }
         this.router.navigate(["login"]);

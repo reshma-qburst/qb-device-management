@@ -1,17 +1,7 @@
-<!-- Login component template -->
+<!-- Account Settings component template -->
 <div class="accountsettings_form_wrapper">
     <h1>Account Settings</h1>
     <div>
-        <nav>
-            <ul>
-                <li><a routerLink="/admindashboard">Dashboard</a></li>
-                <li><a href="#">Add Devices</a></li>
-                <li><a href="#">Search</a></li>
-                <li><a href="#">Device Allocation</a></li>
-                <li><a href="#">Damage Summary</a></li>
-                <li><a routerLink="/accountsettings">Account Settings</a></li>
-            </ul>
-        </nav>
         <div class="account-settings-form-div">
             <form [formGroup]="accountsettings" (ngSubmit)="changepassword(accountsettings)" #f="ngForm" novalidate id="accountsettings">
                 <div class="form-group" [ngClass]="{'has-error': accountsettings.submitted && !accountsettings.controls['oldpassword'].valid}">
