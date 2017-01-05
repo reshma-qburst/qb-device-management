@@ -22,10 +22,11 @@ import { AddDeviceComponent } from "./adddevice/adddevice.component";
 import { MenuComponent }  from "./shared/menu/menu.component";
 
 import { MenuService } from "./shared/menu/menu.service";
+import { DeviceAllocationComponent } from "./deviceallocation/deviceallocation.component";
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, routing, HttpModule, ReactiveFormsModule ],
-  declarations: [ AppComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent, AccountSettingsComponent, HeaderComponent, FooterComponent, AddDeviceComponent, MenuComponent],
+  declarations: [ AppComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent, AccountSettingsComponent, HeaderComponent, FooterComponent, AddDeviceComponent, MenuComponent, DeviceAllocationComponent],
   bootstrap:    [ AppComponent],
   providers: [
   AuthGuard, PreventLoggedInAccess,

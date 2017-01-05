@@ -16,7 +16,9 @@ export class AuthGuard implements CanActivate {
                 userData.role === 0 && state.url === "/adddevice" ||
                 userData.role === 1 && state.url === "/adddevice" ||
                 userData.role === 0 && state.url === "/accountsettings" ||
-                userData.role === 1 && state.url === "/accountsettings" ) {
+                userData.role === 1 && state.url === "/accountsettings" ||
+                userData.role === 0 && state.url === "/deviceallocation" ||
+                userData.role === 1 && state.url === "/deviceallocation" ) {
                 return true;
             }
         }

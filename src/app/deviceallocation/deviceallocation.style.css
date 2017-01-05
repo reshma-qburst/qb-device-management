@@ -1,0 +1,56 @@
+.device_allocation_form_wrapper {
+    display: block;
+    margin: 0 auto;
+}
+
+.btn-save {
+    background: #e41d60;
+    border: 0;
+    padding: 7px 22px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.btn-save:focus {
+    outline: none;
+    border: 0;
+}
+
+.text-danger {
+    color: #ff0000;
+}
+
+.has-error .form-control {
+    border-color: #ff0000;
+}
+
+@media (max-width: 1024px) {
+    .device_allocation_form_wrapper {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .device_allocation_form_wrapper {
+        width: 75%;
+    }
+}
+
+@media (max-width: 480px) {
+    .device_allocation_form_wrapper {
+        width: 100%;
+    }
+    .device_allocation_form_wrapper form {
+        padding: 0 15px;
+    }
+}
+
+.device-allocation-form-div {
+    width: 30%;
+    display: block;
+    margin: 0 auto;
+    border-left: 1px solid gray;
+    margin-left: 170px;
+    padding: 1em;
+    overflow: hidden;
+}
