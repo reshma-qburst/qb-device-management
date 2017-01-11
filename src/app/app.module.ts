@@ -24,8 +24,10 @@ import { MenuComponent }  from "./shared/menu/menu.component";
 import { MenuService } from "./shared/menu/menu.service";
 import { DeviceAllocationComponent } from "./deviceallocation/deviceallocation.component";
 
+import { NKDatetimeModule } from "../../node_modules/ng2-datetime/ng2-datetime";
+
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, routing, HttpModule, ReactiveFormsModule ],
+  imports:      [ BrowserModule, FormsModule, routing, HttpModule, ReactiveFormsModule, NKDatetimeModule ],
   declarations: [ AppComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent, AccountSettingsComponent, HeaderComponent, FooterComponent, AddDeviceComponent, MenuComponent, DeviceAllocationComponent],
   bootstrap:    [ AppComponent],
   providers: [

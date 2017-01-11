@@ -1,6 +1,9 @@
 import { Component } from "@angular/core";
 import { FormBuilder, Validators, FormGroup, FormControl } from "@angular/forms";
 
+import "../../../node_modules/bootstrap-datepicker/js/bootstrap-datepicker.js";
+import { NKDatetimeModule } from "../../../node_modules/ng2-datetime/ng2-datetime";
+
 @Component({
 selector: "deviceallocation",
 templateUrl: "./deviceallocation.component.html",
@@ -16,7 +19,8 @@ export class DeviceAllocationComponent {
             employeeid: new FormControl("", Validators.required),
             project: new FormControl("", Validators.required),
             reportingmanager: new FormControl("", Validators.required),
-            deviceid: new FormControl("", Validators.required)
+            deviceid: new FormControl("", Validators.required),
+            date: new FormControl("", Validators.required)
         });
 		
 	}
@@ -27,5 +31,14 @@ export class DeviceAllocationComponent {
 		if (deviceallocation.valid) {
                 
         }
+	}
+
+	datepickerOptions = {
+	    defaultDate: (new Date()),
+	    autoclose: true,
+	    todayBtn: "linked",
+	    todayHighlight: true,
+	    assumeNearbyYear: true,
+	    format: "D, d MM yyyy"
 	}
 } 
