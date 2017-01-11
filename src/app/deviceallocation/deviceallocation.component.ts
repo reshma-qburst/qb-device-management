@@ -40,8 +40,7 @@ export class DeviceAllocationComponent {
 	    todayBtn: "linked",
 	    todayHighlight: true,
 	    assumeNearbyYear: true,
-	    format: "D, d MM yyyy",
-	    daysOfWeekDisabled: [0, 6]
+	    format: "D, d MM yyyy"
 	}
 
 	clearFields(deviceallocation) {
