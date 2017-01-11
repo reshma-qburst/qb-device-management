@@ -54,7 +54,8 @@ module.exports = function makeWebpackConfig() {
                 loader: isTest ? 'null-loader' : ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: ['css-loader'] })
             },
             { test: /\.css$/, include: root('src', 'app'), loader: 'raw-loader!postcss-loader' },
-            { test: /\.html$/, loader: 'raw-loader' }
+            { test: /\.html$/, loader: 'raw-loader' },
+            { test: /\.(png|woff|woff2|eot|ttf|svg|gif)$/, loader: 'url-loader?limit=100000' }
         ]
     };
 
@@ -80,17 +81,20 @@ module.exports = function makeWebpackConfig() {
     );
 
     config.plugins.push(
+        new ExtractTextPlugin({
+            filename: 'node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.css'
+        })
+    );
+
+
+    config.plugins.push(
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery"
         })
     );
 
-    config.plugins.push(
-        new ExtractTextPlugin({
-            filename: 'node_modules/bootstrap-datepicker/dist/css'
-        })
-    );
+
 
     /**
      * Dev server configuration
