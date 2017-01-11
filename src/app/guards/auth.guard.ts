@@ -10,10 +10,10 @@ export class AuthGuard implements CanActivate {
     constructor(private localstorage: LocalstorageService, private router: Router) {}
     canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         if (this.localstorage.getUser()) {
-            let userData = JSON.parse(this.localstorage.getUser());
-            if (userData.role === 0 && state.url === "/admindashboard") {
+            let userData = JSON.parse( this.localstorage.getUser() );
+            if (userData.roleType === 1 && state.url === "/admindashboard") {
                 return true;
-            }else if (userData.role === 1 && state.url === "/userdashboard") {
+            }else if (userData.roleType === 3 && state.url === "/userdashboard") {
                 return true;
             }else if (userData.role === 0 && state.url === "/adddevice") {
                 return true;
