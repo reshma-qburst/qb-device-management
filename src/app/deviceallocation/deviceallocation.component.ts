@@ -34,11 +34,18 @@ export class DeviceAllocationComponent {
 	}
 
 	datepickerOptions = {
-	    defaultDate: (new Date()),
+	    defaultViewDate: (new Date()),
+	    startDate: (new Date()),
 	    autoclose: true,
 	    todayBtn: "linked",
 	    todayHighlight: true,
 	    assumeNearbyYear: true,
-	    format: "D, d MM yyyy"
+	    format: "D, d MM yyyy",
+	    daysOfWeekDisabled: [0, 6]
+	}
+
+	clearFields(deviceallocation) {
+		deviceallocation.reset();
+		deviceallocation.submitted = false; // remove form errors as well.
 	}
 } 

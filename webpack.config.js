@@ -51,7 +51,7 @@ module.exports = function makeWebpackConfig() {
             }, {
                 test: /\.css$/,
                 exclude: root('src', 'app'),
-                loader: isTest ? 'null-loader' : ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: ['css-loader', 'postcss-loader'] })
+                loader: isTest ? 'null-loader' : ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: ['css-loader'] })
             },
             { test: /\.css$/, include: root('src', 'app'), loader: 'raw-loader!postcss-loader' },
             { test: /\.html$/, loader: 'raw-loader' }
@@ -83,6 +83,12 @@ module.exports = function makeWebpackConfig() {
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery"
+        })
+    );
+
+    config.plugins.push(
+        new ExtractTextPlugin({
+            filename: 'node_modules/bootstrap-datepicker/dist/css'
         })
     );
 
