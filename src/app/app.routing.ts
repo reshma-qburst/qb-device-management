@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: "login", component: LoginComponent, canActivate: [PreventLoggedInAccess]},
   { path: "admindashboard", component: AdminDashboardComponent, canActivate: [AuthGuard]},
   { path: "userdashboard", component: UserDashboardComponent, canActivate: [AuthGuard]},
-  { path: "accountsettings", component: AccountSettingsComponent},
+  { path: "accountsettings", component: AccountSettingsComponent, canActivate: [AuthGuard]},
     // otherwise redirect to login
   { path: "**", redirectTo: "/login"}
 ];

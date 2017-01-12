@@ -1,7 +1,4 @@
 /** styles */
-.dm_link {
-	cursor: pointer;
-}
 html {
 	height: 100%;
 }
@@ -10,26 +7,9 @@ body {
 	padding-bottom: 57px;
 	position: relative;
 }
-header{
-	border-bottom: 1px solid #ccc;
-    padding: 15px 0;
-}
-footer {
-	background-color: #1e1e1e;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	padding: 20px 0;
-	color: #fff;
-}
 main {
 	padding: 15px 0;
 }
 footer {
 	font-size: 12px;
-}
-.logout_link {
-	float: right;
-    margin: -30px 75px;
 }

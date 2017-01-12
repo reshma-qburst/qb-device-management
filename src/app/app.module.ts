@@ -16,13 +16,19 @@ import { PreventLoggedInAccess } from "./guards/login.guard";
 import { LocalstorageService } from "./login/localstorage.service";
 import { AccountSettingsComponent } from "./accountsettings/accountsettings.component";
 
+import { HeaderComponent }  from "./shared/header/header.component";
+import { FooterComponent }  from "./shared/footer/footer.component";
+import { MenuComponent }  from "./shared/menu/menu.component";
+import { MenuService } from "./shared/menu/menu.service";
+
 @NgModule({
   imports:      [ BrowserModule, FormsModule, routing, HttpModule, ReactiveFormsModule ],
-  declarations: [ AppComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent, AccountSettingsComponent],
+  declarations: [ AppComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent, AccountSettingsComponent, HeaderComponent, FooterComponent, MenuComponent],
   bootstrap:    [ AppComponent],
   providers: [
   AuthGuard, PreventLoggedInAccess,
   LocalstorageService,
+  MenuService,
     { provide: APP_BASE_HREF, useValue: window["_app_base"] || "/" }
   ]
 })

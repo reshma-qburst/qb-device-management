@@ -1,16 +1,6 @@
-<header>
-	<div class="container">
-		<a routerLink="/"><img src="./images/QBlogo.svg" alt="logo"></a>
-	</div>
-	<p *ngIf="isUserLoggedIn" class="logout_link"><a (click)="logout()" class="dm_link">Logout</a></p>
-</header>
-<main>
+<headerSection></headerSection>
+<menuSection></menuSection>
+<main class="container">
   <router-outlet></router-outlet>
 </main>
-<footer>
-	<div class="container align-left">
-		&copy; QBurst 2016. All Rights Reserved.
-	</div>
-</footer>
-
-
+<footerSection></footerSection>
