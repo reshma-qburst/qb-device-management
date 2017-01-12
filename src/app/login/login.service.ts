@@ -18,11 +18,11 @@ isLoggedIn: boolean = false;
   redirectUrl: string;
 
 constructor(private http: Http) {
-console.log("Service Initialised");
+
 }
 
 userLogin() {
-return this.http.get("../json/users.json")
+return this.http.get("http://10.9.12.187:3000/api/v1/users")
 .map(response => response.json());
 }
 
