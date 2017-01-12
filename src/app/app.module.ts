@@ -21,6 +21,8 @@ import { AccountSettingsComponent } from "./accountsettings/accountsettings.comp
 import { AddDeviceComponent } from "./adddevice/adddevice.component";
 import { MenuComponent }  from "./shared/menu/menu.component";
 
+import { MenuService } from "./shared/menu/menu.service";
+
 @NgModule({
   imports:      [ BrowserModule, FormsModule, routing, HttpModule, ReactiveFormsModule ],
   declarations: [ AppComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent, AccountSettingsComponent, HeaderComponent, FooterComponent, AddDeviceComponent, MenuComponent],
@@ -28,6 +30,7 @@ import { MenuComponent }  from "./shared/menu/menu.component";
   providers: [
   AuthGuard, PreventLoggedInAccess,
   LocalstorageService,
+  MenuService,
     { provide: APP_BASE_HREF, useValue: window["_app_base"] || "/" }
   ]
 })
