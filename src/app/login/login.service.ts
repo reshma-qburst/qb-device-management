@@ -12,22 +12,21 @@ import "rxjs/add/operator/delay";
 @Injectable()
 export class LoginService {
 
-isLoggedIn: boolean = false;
+	isLoggedIn: boolean = false;
 
-// store the URL so we can redirect after logging in
-  redirectUrl: string;
+	// store the URL so we can redirect after logging in
+	  redirectUrl: string;
 
-constructor(private http: Http) {
+	constructor(private http: Http) {
 
-}
+	}
 
-userLogin() {
-return this.http.get("http://10.9.12.187:3000/api/v1/users")
-.map(response => response.json());
-}
+  	userLogin(formData) {
+	    return this.http.post('http://10.9.12.187:3000/api/v1/users/login', formData).map((res: Response) => res.json());
+	}
 
-logout(): void {
-    localStorage.removeItem("currentUser");
-    this.isLoggedIn = false;
-}
+	logout(): void {
+	    localStorage.removeItem("currentUser");
+	    this.isLoggedIn = false;
+	}
 }
