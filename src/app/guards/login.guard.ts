@@ -11,9 +11,9 @@ export class PreventLoggedInAccess implements CanActivate {
     canActivate() {
         if (this.localstorage.getUser()) {
             let userData = JSON.parse(this.localstorage.getUser());
-            if (userData.role === 0) {
+            if (userData.role === 1) {
                 this.router.navigate(["/admindashboard"]);
-            }else if (userData.role === 1) {
+            }else if (userData.role === 3) {
                 this.router.navigate(["/userdashboard"]);
              }
           return false;

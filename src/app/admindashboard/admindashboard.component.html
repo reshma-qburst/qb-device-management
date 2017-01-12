@@ -3,16 +3,6 @@
     <h1>Dashboard - Admin</h1>
     <div>
         <h2>Hi {{userName}}!</h2>
-        <nav>
-            <ul>
-                <li><a routerLink="/admindashboard">Dashboard</a></li>
-                <li><a href="#">Add Devices</a></li>
-                <li><a href="#">Search</a></li>
-                <li><a href="#">Device Allocation</a></li>
-                <li><a href="#">Damage Summary</a></li>
-                <li><a routerLink="/accountsettings">Account Settings</a></li>
-            </ul>
-        </nav>
         <article>
             <div *ngIf="assetList">
                 <p-dataTable [value]="assetList" [rows]="10" [paginator]="true" [rowsPerPageOptions]="[10,50,100]" sortMode="multiple" [responsive]="true">

@@ -7,7 +7,6 @@ import { Injectable } from "@angular/core";
 export class LocalstorageService {
 
     constructor() {
-        console.log("Local storage service initialised");
     }
 
     setUser(user) {

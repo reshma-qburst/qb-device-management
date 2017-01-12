@@ -17,10 +17,12 @@ isLoggedIn: boolean = false;
 // store the URL so we can redirect after logging in
   redirectUrl: string;
 
-constructor(private http: Http) { }
+constructor(private http: Http) {
+
+}
 
 userLogin() {
-return this.http.get("../json/users.json")
+return this.http.get("http://10.9.12.187:3000/api/v1/users")
 .map(response => response.json());
 }
 

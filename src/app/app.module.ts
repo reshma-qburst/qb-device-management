@@ -19,13 +19,19 @@ import { AdminDashboardService } from "./admindashboard/admindashboard.service";
 
 import { DataTableModule, SharedModule } from "primeng/primeng";
 
+import { HeaderComponent }  from "./shared/header/header.component";
+import { FooterComponent }  from "./shared/footer/footer.component";
+import { MenuComponent }  from "./shared/menu/menu.component";
+import { MenuService } from "./shared/menu/menu.service";
+
 @NgModule({
   imports:      [ BrowserModule, FormsModule, routing, HttpModule, ReactiveFormsModule, DataTableModule, SharedModule ],
-  declarations: [ AppComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent, AccountSettingsComponent],
+  declarations: [ AppComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent, AccountSettingsComponent, HeaderComponent, FooterComponent, MenuComponent],
   bootstrap:    [ AppComponent],
   providers: [
   AuthGuard, PreventLoggedInAccess,
   LocalstorageService,
+  MenuService,
   AdminDashboardService,
     { provide: APP_BASE_HREF, useValue: window["_app_base"] || "/" }
   ]

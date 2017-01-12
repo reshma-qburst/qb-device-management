@@ -11,9 +11,10 @@ export class AuthGuard implements CanActivate {
     canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         if (this.localstorage.getUser()) {
             let userData = JSON.parse(this.localstorage.getUser());
-            if (userData.role === 0 && state.url === "/admindashboard") {
-                return true;
-            }else if (userData.role === 1 && state.url === "/userdashboard") {
+            if (userData.roleType === 1 && state.url === "/admindashboard" ||
+                userData.roleType === 3 && state.url === "/userdashboard" ||
+                userData.roleType === 1 && state.url === "/accountsettings" ||
+                userData.roleType === 3 && state.url === "/accountsettings") {
                 return true;
             }
         }
