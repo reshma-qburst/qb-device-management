@@ -26,10 +26,10 @@
                     <input type="text" class="form-control" [formControl]="addDeviceForm.controls['deviceid']" required/>
                     <p *ngIf="addDeviceForm.submitted && addDeviceForm.controls['deviceid'].hasError('required')" class="text-danger">Device Id Required</p>
                 </div>
-                <div class="form-group" [ngClass]="{'has-error': addDeviceForm.submitted && !addDeviceForm.controls['osversion'].valid}">
-                    <label for="osversion">OS Version</label>
-                    <input type="text" class="form-control" [formControl]="addDeviceForm.controls['osversion']" required>
-                    <p *ngIf="addDeviceForm.submitted && addDeviceForm.controls['osversion'].hasError('required')" class="text-danger">OS Version Required</p>
+                <div class="form-group" [ngClass]="{'has-error': addDeviceForm.submitted && !addDeviceForm.controls['osVer'].valid}">
+                    <label for="osVer">OS Version</label>
+                    <input type="text" class="form-control" [formControl]="addDeviceForm.controls['osVer']" required>
+                    <p *ngIf="addDeviceForm.submitted && addDeviceForm.controls['osVer'].hasError('required')" class="text-danger">OS Version Required</p>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-login">Save</button>

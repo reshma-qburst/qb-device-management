@@ -18,9 +18,9 @@ addDeviceForm: FormGroup;
 devicetypelist: [any];
 selectedId: number;
 
-    constructor(private router: Router, private formBuilder: FormBuilder, private getdevicetype: AddDeviceService) {
+    constructor(private router: Router, private formBuilder: FormBuilder, private deviceService: AddDeviceService) {
 
-	this.getdevicetype.getDeviceType()
+	this.deviceService.getDeviceType()
         .subscribe(devicetypelist => {
         this.devicetypelist = devicetypelist;
     });
@@ -30,7 +30,7 @@ selectedId: number;
             devicesize: new FormControl("", Validators.required),
             devicetype: new FormControl("", Validators.required),
             deviceid: new FormControl("", Validators.required),
-            osversion: new FormControl("", Validators.required)
+            osVer: new FormControl("", Validators.required)
         });
     }
 
@@ -38,7 +38,11 @@ selectedId: number;
 		let value = addDeviceForm.value;
 		addDeviceForm.submitted = true;
 		if (addDeviceForm.valid) {
-			console.log(addDeviceForm);
+
+            this.deviceService.addNewDevice()
+                .subscribe(addDeviceReponse => {
+                    console.log(addDeviceReponse);
+            });
 		}
 	}
 
