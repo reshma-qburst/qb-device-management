@@ -39,15 +39,16 @@ export class LoginComponent implements OnInit {
             loginform.submitted = true;
             if (loginform.valid) {
                 this.loginservice.userLogin()
-                .subscribe(login => {
-                    this.login = login;
-                    if ( this.checkUser(value, login) ) {
-                        this.localstorage.setUser(this.user[0]);
-                        this.invalidLogin = false;
-                        if ( this.user[0].role === 0) {
-                            this.router.navigate(["/admindashboard"]);
-                        }else if ( this.user[0].role === 1) {
-                            this.router.navigate(["/userdashboard"]);
+                .subscribe(loginResponse => {
+                    if ( loginResponse.error === 0 ) {
+                        if ( this.checkUser(value, loginResponse.result) ) {
+                            this.localstorage.setUser(this.user[0]);
+                            this.invalidLogin = false;
+                            if ( this.user[0].roleType === 1) {
+                                this.router.navigate(["/admindashboard"]);
+                            }else if ( this.user[0].roleType === 3) {
+                                this.router.navigate(["/userdashboard"]);
+                            }
                         }
                     }
                     else {
@@ -62,7 +63,7 @@ export class LoginComponent implements OnInit {
         checkUser(userValue, users) {
             this.user = users.filter(
                 element => {
-                    return element.username === userValue.username && element.password === userValue.password ;
+                    return element.userName === userValue.username && element.password === userValue.password ;
                 });
             if (this.user.length)
                 return true;

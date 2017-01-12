@@ -22,7 +22,7 @@ constructor(private http: Http) {
 }
 
 userLogin() {
-return this.http.get("../json/users.json")
+return this.http.get("http://10.9.12.187:3000/api/v1/users")
 .map(response => response.json());
 }
 

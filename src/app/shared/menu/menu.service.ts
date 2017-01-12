@@ -9,6 +9,6 @@ export class MenuService {
 	constructor(private localstorage: LocalstorageService ) { }
 
 	getUserRole() {
-  		return JSON.parse(this.localstorage.getUser()).role;
+  		return JSON.parse(this.localstorage.getUser()).roleType;
    	}
 }

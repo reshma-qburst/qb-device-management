@@ -1,6 +1,6 @@
 <!-- Menu Component Template-->
 <nav *ngIf="localstorage.getUser()">
-    <ul *ngIf="menuservice.getUserRole() == 0">
+    <ul *ngIf="menuservice.getUserRole() == 1">
         <li><a routerLink="/admindashboard">Dashboard</a></li>
         <li><a routerLink="/adddevice">Add Devices</a></li>
         <li><a routerLink="#">Search</a></li>
@@ -8,7 +8,7 @@
         <li><a routerLink="#">Damage Summary</a></li>
         <li><a routerLink="/accountsettings">Account Settings</a></li>
     </ul>
-    <ul *ngIf="menuservice.getUserRole() == 1">
+    <ul *ngIf="menuservice.getUserRole() == 3">
         <li><a routerLink="/userdashboard">Dashboard</a></li>
         <li><a href="#">Search</a></li>
         <li><a href="#">Device Allocation</a></li>
