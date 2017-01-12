@@ -38,8 +38,7 @@ export class LoginComponent implements OnInit {
         login(loginform) {
             let value = loginform.value;
             loginform.submitted = true;
-            debugger;
-            var EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
+            let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
             if(!EMAIL_REGEXP.test(value.email)){
                 this.invalidEmail = true;
             }else if (loginform.valid) {
