@@ -2,30 +2,13 @@
 <div class="admin-dashboard-wrapper">
     <h1>Dashboard - Admin</h1>
     <div>
-        <!-- <h2>Hi {{userName}}!</h2> -->
+        <h2>Hi {{userName}}!</h2>
         <article>
-            <div class="panel panel-default" style="margin-top:10px;">
-                <div class="panel-heading">
-                    Device Count
-                </div>
-                <div class="panel-body" style="position:relative">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+            <div *ngIf="assetList">
+                <p-dataTable [value]="assetList" [rows]="10" [paginator]="true" [rowsPerPageOptions]="[10,50,100]" sortMode="multiple" [responsive]="true">
+                    <header>Device Count</header>
+                    <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header"></p-column>
+                </p-dataTable>
             </div>
         </article>
         <article>

@@ -49,4 +49,9 @@ selectedId: number;
 	onSelect(id) {
         this.selectedId = id;
     }
+
+    clearFields(addDeviceForm) {
+        addDeviceForm.reset();
+        addDeviceForm.submitted = false; // remove form errors as well.
+    }
 }

@@ -17,20 +17,24 @@ import { AuthGuard } from "./guards/auth.guard";
 import { PreventLoggedInAccess } from "./guards/login.guard";
 import { LocalstorageService } from "./login/localstorage.service";
 import { AccountSettingsComponent } from "./accountsettings/accountsettings.component";
+import { AdminDashboardService } from "./admindashboard/admindashboard.service";
 
-import { AddDeviceComponent } from "./adddevice/adddevice.component";
+import { DataTableModule, SharedModule } from "primeng/primeng";
+
 import { MenuComponent }  from "./shared/menu/menu.component";
-
 import { MenuService } from "./shared/menu/menu.service";
 
+import { AddDeviceComponent } from "./adddevice/adddevice.component";
+
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, routing, HttpModule, ReactiveFormsModule ],
+  imports:      [ BrowserModule, FormsModule, routing, HttpModule, ReactiveFormsModule, DataTableModule, SharedModule ],
   declarations: [ AppComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent, AccountSettingsComponent, HeaderComponent, FooterComponent, AddDeviceComponent, MenuComponent],
   bootstrap:    [ AppComponent],
   providers: [
   AuthGuard, PreventLoggedInAccess,
   LocalstorageService,
   MenuService,
+  AdminDashboardService,
     { provide: APP_BASE_HREF, useValue: window["_app_base"] || "/" }
   ]
 })
