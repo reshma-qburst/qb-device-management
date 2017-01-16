@@ -8,8 +8,6 @@ import "rxjs/add/operator/map";
 export class LoginService {
 
 constructor(private http: Http) {
-
-console.log("Service Initialised");
 }
 
 }

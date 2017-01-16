@@ -2,15 +2,16 @@
 <div class="login_form_wrapper">
     <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)" #f="ngForm" novalidate id="loginForm">
         <h2>Login</h2>
-        <div class="form-group" [ngClass]="{'has-error': loginForm.submitted && !loginForm.controls['username'].valid}">
-            <label for="username">Username:</label>
-            <input type="text" class="form-control" [formControl]="loginForm.controls['username']" required autofocus/>
-            <p *ngIf="loginForm.submitted && loginForm.controls['username'].hasError('required')" class="text-danger">Enter your username</p>
+        <div class="form-group" [ngClass]="{'has-error': loginForm.submitted && !loginForm.controls['email'].valid}">
+            <label for="email">Email:</label>
+            <input type="text" placeholder="admin@qburst.com" class="form-control" [formControl]="loginForm.controls['email']" required autofocus/>
+            <p *ngIf="loginForm.submitted && loginForm.controls['email'].hasError('required')" class="text-danger">Email is required</p>
+            <p *ngIf="invalidEmail && !loginForm.controls['email'].hasError('required')" class="text-danger">Please Enter Valid Email ID</p>
         </div>
         <div class="form-group" [ngClass]="{'has-error': loginForm.submitted && !loginForm.controls['password'].valid}">
             <label for="password">Password:</label>
             <input type="password" class="form-control" [formControl]="loginForm.controls['password']" minlength="3" required/>
-            <p *ngIf="loginForm.submitted && loginForm.controls['password'].hasError('required')" class="text-danger">Enter your password</p>
+            <p *ngIf="loginForm.submitted && loginForm.controls['password'].hasError('required')" class="text-danger">Password is required</p>
             <p *ngIf="loginForm.submitted && loginForm.controls['password'].hasError('minlength')" class="text-danger">Password should be atleast 3 characters</p>
         </div>
         <p *ngIf="invalidLogin" class="text-danger invalid_login_msg">Please Enter Valid Credentials</p>
