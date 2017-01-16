@@ -1,10 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+import { provideRoutes } from "@angular/router";
+import { Router } from "@angular/router";
+import { LocalstorageService } from "./login/localstorage.service";
 
 @Component({
-	selector: 'my-app',
-	template: '<h1>Hello {{name}} !!!</h1>'
+    selector: "main-content-area",
+    encapsulation: ViewEncapsulation.None,
+    templateUrl: "./app.component.html",
+    styleUrls: ["./app.style.css"]
 })
 
-export class AppComponent {
-	name = "John";
- }
+export class AppComponent implements OnInit {
+  public isUserLoggedIn: boolean = false;
+  constructor(private localstorage: LocalstorageService, private router: Router) {
+  }
+
+  ngOnInit() {}
+}
