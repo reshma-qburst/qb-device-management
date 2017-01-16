@@ -5,6 +5,8 @@ import { APP_BASE_HREF, Location } from "@angular/common";
 import { ReactiveFormsModule } from "@angular/forms";
 
 import { AppComponent }  from "./app.component";
+import { HeaderComponent }  from "./shared/header/header.component";
+import { FooterComponent }  from "./shared/footer/footer.component";
 import { LoginComponent }  from "./login/login.component";
 import { AdminDashboardComponent }  from "./admindashboard/admindashboard.component";
 import { UserDashboardComponent }  from "./userdashboard/userdashboard.component";
@@ -19,8 +21,6 @@ import { AdminDashboardService } from "./admindashboard/admindashboard.service";
 
 import { DataTableModule, SharedModule } from "primeng/primeng";
 
-import { HeaderComponent }  from "./shared/header/header.component";
-import { FooterComponent }  from "./shared/footer/footer.component";
 import { MenuComponent }  from "./shared/menu/menu.component";
 import { MenuService } from "./shared/menu/menu.service";
 

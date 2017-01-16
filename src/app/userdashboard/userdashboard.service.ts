@@ -7,6 +7,7 @@ import "rxjs/add/operator/map";
 @Injectable()
 export class LoginService {
 
-constructor(private http: Http) { }
+constructor(private http: Http) {
+}
 
 }
