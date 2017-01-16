@@ -1,4 +1,4 @@
-// Add Device Service
+// Menu Service
 
 import { Injectable } from "@angular/core";
 

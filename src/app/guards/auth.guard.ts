@@ -20,6 +20,9 @@ export class AuthGuard implements CanActivate {
                 userData.roleType === 1 && state.url === "/deviceallocation" ||
                 userData.roleType === 3 && state.url === "/deviceallocation" ) {
                 return true;
+
+            }else if (userData.roleType === 3 && state.url === "/userdashboard") {
+                return true;
             }
         }
         this.router.navigate(["login"]);

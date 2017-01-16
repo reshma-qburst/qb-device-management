@@ -3,7 +3,7 @@
     margin: 0 auto;
 }
 
-.btn-login {
+.btn-save {
     background: #e41d60;
     border: 0;
     padding: 7px 22px;
@@ -11,7 +11,7 @@
     font-size: 16px;
 }
 
-.btn-login:focus {
+.btn-save:focus {
     outline: none;
     border: 0;
 }

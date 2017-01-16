@@ -13,42 +13,46 @@ import { LocalstorageService } from "./localstorage.service";
     styleUrls: ["./login.style.css"]
 })
 export class LoginComponent implements OnInit {
-    model: any = {};
-    returnUrl: string;
-    loginForm: FormGroup;
-    user: [any];
-    invalidLogin: boolean = false;
-    constructor(
-        private route: ActivatedRoute,
-        private router: Router,
-        private loginservice: LoginService,
-        private formBuilder: FormBuilder,
-        private localstorage: LocalstorageService) {
-        this.loginForm = new FormGroup({
-            username: new FormControl("", Validators.required),
-            password: new FormControl("", Validators.required)
+        model: any = {};
+        returnUrl: string;
+        loginForm: FormGroup;
+        user: [any];
+        invalidLogin: boolean = false;
+        invalidEmail: boolean = false;
+        constructor(
+            private route: ActivatedRoute,
+            private router: Router,
+            private loginservice: LoginService,
+            private formBuilder: FormBuilder,
+            private localstorage: LocalstorageService) {
+            this.loginForm = new FormGroup({
+                email: new FormControl("", Validators.required),
+                password: new FormControl("", Validators.required)
+                });
+            this.loginForm.valueChanges.subscribe(data => {
+                if (this.invalidLogin)
+                    this.invalidLogin = false;
             });
-        this.loginForm.valueChanges.subscribe(data => {
-            if (this.invalidLogin)
-                this.invalidLogin = false;
-        });
-    }
+        }
 
         login(loginform) {
             let value = loginform.value;
             loginform.submitted = true;
-            if (loginform.valid) {
-                this.loginservice.userLogin()
+            let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
+            if(!EMAIL_REGEXP.test(value.email)){
+                this.invalidEmail = true;
+            }else if (loginform.valid) {
+                this.invalidEmail = false;
+                this.loginservice.userLogin(value)
                 .subscribe(loginResponse => {
                     if ( loginResponse.error === 0 ) {
-                        if ( this.checkUser(value, loginResponse.result) ) {
-                            this.localstorage.setUser(this.user[0]);
-                            this.invalidLogin = false;
-                            if ( this.user[0].roleType === 1) {
-                                this.router.navigate(["/admindashboard"]);
-                            }else if ( this.user[0].roleType === 3) {
-                                this.router.navigate(["/userdashboard"]);
-                            }
+                        let response = JSON.stringify(loginResponse.result);
+                        this.localstorage.setUser(loginResponse.result);
+                        this.invalidLogin = false;
+                        if(loginResponse.result.roleType === 1){
+                            this.router.navigate(["/admindashboard"]);
+                        }else if(loginResponse.result.roleType === 3) {
+                            this.router.navigate(["/userdashboard"]);
                         }
                     }
                     else {
@@ -57,15 +61,8 @@ export class LoginComponent implements OnInit {
                 });
             }
         }
+
         ngOnInit() {
             this.returnUrl = this.route.snapshot.queryParams["returnUrl"] || "/";
-        }
-        checkUser(userValue, users) {
-            this.user = users.filter(
-                element => {
-                    return element.userName === userValue.username && element.password === userValue.password ;
-                });
-            if (this.user.length)
-                return true;
         }
 }

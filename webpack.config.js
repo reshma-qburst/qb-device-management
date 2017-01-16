@@ -5,6 +5,8 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+/*var jQuery = require("jquery");*/
+
 /**
  * Env
  * Get npm lifecycle event to identify the environment
@@ -86,6 +88,15 @@ module.exports = function makeWebpackConfig() {
         })
     );
 
+    config.plugins.push(
+        new ExtractTextPlugin({
+            filename: 'node_modules/primeui/themes/omega/theme.css'
+        }),
+        new ExtractTextPlugin({
+            filename: 'node_modules/primeui/primeui-ng-all.min.css'
+        })
+    );
+
 
     config.plugins.push(
         new webpack.ProvidePlugin({
@@ -95,12 +106,19 @@ module.exports = function makeWebpackConfig() {
     );
 
 
+/*    config.plugins.push(
+        new webpack.ProvidePlugin({
+            'window.jQuery': 'jquery',
+            'window.$': 'jquery',
+        })
+    );
+*/
 
-    /**
-     * Dev server configuration
-     * Reference: http://webpack.github.io/docs/configuration.html#devserver
-     * Reference: http://webpack.github.io/docs/webpack-dev-server.html
-     */
+        /**
+         * Dev server configuration
+         * Reference: http://webpack.github.io/docs/configuration.html#devserver
+         * Reference: http://webpack.github.io/docs/webpack-dev-server.html
+         */
     config.devServer = {
         contentBase: './src',
         historyApiFallback: true,
