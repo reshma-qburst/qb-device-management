@@ -29,6 +29,8 @@ import { AddDeviceComponent } from "./adddevice/adddevice.component";
 import { DeviceAllocationComponent } from "./deviceallocation/deviceallocation.component";
 
 import { NKDatetimeModule } from "../../node_modules/ng2-datetime/ng2-datetime";
+import { APP_CONFIG, AppConfig } from "./app.config";
+import { CommonService } from "./app.service";
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, routing, HttpModule, ReactiveFormsModule, DataTableModule, SharedModule, NKDatetimeModule ],
@@ -39,7 +41,9 @@ import { NKDatetimeModule } from "../../node_modules/ng2-datetime/ng2-datetime";
   LocalstorageService,
   MenuService,
   AdminDashboardService,
-    { provide: APP_BASE_HREF, useValue: window["_app_base"] || "/" }
+  CommonService,
+    { provide: APP_BASE_HREF, useValue: window["_app_base"] || "/" },
+    { provide: APP_CONFIG, useValue: AppConfig }
   ]
 })
 

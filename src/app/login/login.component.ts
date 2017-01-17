@@ -5,6 +5,7 @@ import { FormBuilder, Validators, FormGroup, FormControl } from "@angular/forms"
 import { Router, ActivatedRoute } from "@angular/router";
 import { LoginService } from "./login.service";
 import { LocalstorageService } from "./localstorage.service";
+import { AppConstants } from "../app.constants";
 
 @Component({
     selector: "login",
@@ -38,8 +39,8 @@ export class LoginComponent implements OnInit {
         login(loginform) {
             let value = loginform.value;
             loginform.submitted = true;
-            let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
-            if(!EMAIL_REGEXP.test(value.email)){
+            let EMAIL_REGEXP = AppConstants.EMAIL_PATTERN;
+            if (!EMAIL_REGEXP.test(value.email) ) {
                 this.invalidEmail = true;
             }else if (loginform.valid) {
                 this.invalidEmail = false;
@@ -49,9 +50,9 @@ export class LoginComponent implements OnInit {
                         let response = JSON.stringify(loginResponse.result);
                         this.localstorage.setUser(loginResponse.result);
                         this.invalidLogin = false;
-                        if(loginResponse.result.roleType === 1){
+                        if (loginResponse.result.roleType === AppConstants.ROLE_ADMIN) {
                             this.router.navigate(["/admindashboard"]);
-                        }else if(loginResponse.result.roleType === 3) {
+                        }else if (loginResponse.result.roleType === AppConstants.ROLE_USER) {
                             this.router.navigate(["/userdashboard"]);
                         }
                     }

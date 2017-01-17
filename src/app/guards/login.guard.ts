@@ -4,6 +4,7 @@ import { Injectable } from "@angular/core";
 import { Router, CanActivate, RouterStateSnapshot } from "@angular/router";
 
 import { LocalstorageService } from "../login/localstorage.service";
+import { AppConstants } from "../app.constants";
 
 @Injectable()
 export class PreventLoggedInAccess implements CanActivate {
@@ -11,9 +12,9 @@ export class PreventLoggedInAccess implements CanActivate {
     canActivate() {
         if (this.localstorage.getUser()) {
             let userData = JSON.parse( this.localstorage.getUser() );
-            if (userData.roleType === 1) {
+            if (userData.roleType === AppConstants.ROLE_ADMIN) {
                 this.router.navigate(["/admindashboard"]);
-            }else if (userData.roleType === 3) {
+            }else if (userData.roleType === AppConstants.ROLE_USER) {
                 this.router.navigate(["/userdashboard"]);
              }
           return false;

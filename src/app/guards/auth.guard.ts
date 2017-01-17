@@ -4,6 +4,7 @@ import { Injectable } from "@angular/core";
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
 
 import { LocalstorageService } from "../login/localstorage.service";
+import { AppConstants } from "../app.constants";
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -11,18 +12,15 @@ export class AuthGuard implements CanActivate {
     canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         if (this.localstorage.getUser()) {
             let userData = JSON.parse(this.localstorage.getUser());
-            if (userData.roleType === 1 && state.url === "/admindashboard" ||
-                userData.roleType === 3 && state.url === "/userdashboard" ||
-                userData.roleType === 1 && state.url === "/adddevice" ||
-                userData.roleType === 3 && state.url === "/adddevice" ||
-                userData.roleType === 1 && state.url === "/accountsettings" ||
-                userData.roleType === 3 && state.url === "/accountsettings" ||
-                userData.roleType === 1 && state.url === "/deviceallocation" ||
-                userData.roleType === 3 && state.url === "/deviceallocation" ) {
-                return true;
-
-            }else if (userData.roleType === 3 && state.url === "/userdashboard") {
-                return true;
+            if (userData.roleType === AppConstants.ROLE_ADMIN && state.url === "/admindashboard" ||
+                userData.roleType === AppConstants.ROLE_USER && state.url === "/userdashboard" ||
+                userData.roleType === AppConstants.ROLE_ADMIN && state.url === "/adddevice" ||
+                userData.roleType === AppConstants.ROLE_USER && state.url === "/adddevice" ||
+                userData.roleType === AppConstants.ROLE_ADMIN && state.url === "/accountsettings" ||
+                userData.roleType === AppConstants.ROLE_USER && state.url === "/accountsettings" ||
+                userData.roleType === AppConstants.ROLE_ADMIN && state.url === "/deviceallocation" ||
+                userData.roleType === AppConstants.ROLE_USER && state.url === "/deviceallocation" ) {
+                    return true;
             }
         }
         this.router.navigate(["login"]);
