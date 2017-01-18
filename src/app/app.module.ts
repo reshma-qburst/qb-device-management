@@ -17,15 +17,33 @@ import { AuthGuard } from "./guards/auth.guard";
 import { PreventLoggedInAccess } from "./guards/login.guard";
 import { LocalstorageService } from "./login/localstorage.service";
 import { AccountSettingsComponent } from "./accountsettings/accountsettings.component";
+import { AdminDashboardService } from "./admindashboard/admindashboard.service";
+
+import { DataTableModule, SharedModule } from "primeng/primeng";
+
+import { MenuComponent }  from "./shared/menu/menu.component";
+import { MenuService } from "./shared/menu/menu.service";
+
+import { AddDeviceComponent } from "./adddevice/adddevice.component";
+
+import { DeviceAllocationComponent } from "./deviceallocation/deviceallocation.component";
+
+import { NKDatetimeModule } from "../../node_modules/ng2-datetime/ng2-datetime";
+import { APP_CONFIG, AppConfig } from "./app.config";
+import { CommonService } from "./app.service";
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, routing, HttpModule, ReactiveFormsModule ],
-  declarations: [ AppComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent, AccountSettingsComponent, HeaderComponent, FooterComponent],
+  imports:      [ BrowserModule, FormsModule, routing, HttpModule, ReactiveFormsModule, DataTableModule, SharedModule, NKDatetimeModule ],
+  declarations: [ AppComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent, AccountSettingsComponent, HeaderComponent, FooterComponent, AddDeviceComponent, MenuComponent, DeviceAllocationComponent],
   bootstrap:    [ AppComponent],
   providers: [
   AuthGuard, PreventLoggedInAccess,
   LocalstorageService,
-    { provide: APP_BASE_HREF, useValue: window["_app_base"] || "/" }
+  MenuService,
+  AdminDashboardService,
+  CommonService,
+    { provide: APP_BASE_HREF, useValue: window["_app_base"] || "/" },
+    { provide: APP_CONFIG, useValue: AppConfig }
   ]
 })
 

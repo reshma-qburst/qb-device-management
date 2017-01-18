@@ -1,6 +1,15 @@
 import "core-js";
 import "reflect-metadata";
 import "zone.js/dist/zone";
+/*
+import "jquery";
+import "jquery-ui";*/
+
+import "../node_modules/primeui/themes/omega/theme.css";
+import "../node_modules/primeui/primeui-ng-all.min.css";
+/*import "../node_modules/primeui/primeui-ng-all.min.js";*/
+
+import "../node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.css";
 
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import {AppModule} from "./app/app.module";

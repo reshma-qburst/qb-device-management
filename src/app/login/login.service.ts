@@ -1,28 +1,21 @@
 // Login Service
 
-import { Injectable } from "@angular/core";
+import { Injectable, Inject } from "@angular/core";
 import { Http, Headers, Response } from "@angular/http";
 
 import { Observable } from "rxjs/Observable" ;
-import "rxjs/add/operator/map";
-import "rxjs/add/observable/of";
-import "rxjs/add/operator/do";
-import "rxjs/add/operator/delay";
+import { CommonService } from "../app.service";
 
 @Injectable()
 export class LoginService {
 
 	isLoggedIn: boolean = false;
-
-	// store the URL so we can redirect after logging in
-	  redirectUrl: string;
-
-	constructor(private http: Http) {
-
-	}
+	constructor(private http: Http, public commonservice: CommonService) {
+             // config.apiEndPoint can be used now
+    }
 
   	userLogin(formData) {
-	    return this.http.post('http://10.9.12.187:3000/api/v1/users/login', formData).map((res: Response) => res.json());
+  		return this.commonservice.callPostApi("v1/users/login", formData);
 	}
 
 	logout(): void {

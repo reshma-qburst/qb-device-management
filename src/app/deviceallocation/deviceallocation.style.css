@@ -1,12 +1,6 @@
-.accountsettings_form_wrapper {
+.device_allocation_form_wrapper {
     display: block;
     margin: 0 auto;
-}
-
-.invalid_password_msg {
-    position: relative;
-    top: -7px;
-    margin: 0;
 }
 
 .btn-save {
@@ -31,34 +25,27 @@
 }
 
 @media (max-width: 1024px) {
-    .login_accountsettings_wrapper {
+    .device_allocation_form_wrapper {
         width: 45%;
     }
 }
 
 @media (max-width: 768px) {
-    .login_accountsettings_wrapper {
+    .device_allocation_form_wrapper {
         width: 75%;
     }
 }
 
 @media (max-width: 480px) {
-    .login_accountsettings_wrapper {
+    .device_allocation_form_wrapper {
         width: 100%;
     }
-    .login_accountsettings_wrapper form {
+    .device_allocation_form_wrapper form {
         padding: 0 15px;
     }
 }
 
-article {
-    margin-left: 170px;
-    border-left: 1px solid gray;
-    padding: 1em;
-    overflow: hidden;
-}
-
-.account-settings-form-div {
+.device-allocation-form-div {
     width: 30%;
     display: block;
     margin: 0 auto;

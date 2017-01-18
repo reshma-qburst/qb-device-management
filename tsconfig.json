@@ -3,8 +3,14 @@
         "target": "es5",
         "module": "commonjs",
         "emitDecoratorMetadata": true,
-    	"experimentalDecorators": true
+        "experimentalDecorators": true
     },
+    "exclude": [
+        "node_modules"
+    ],
     "compileOnSave": false,
-    "buildOnSave": false
+    "buildOnSave": false,
+    "types": [
+        "jquery"
+    ]
 }

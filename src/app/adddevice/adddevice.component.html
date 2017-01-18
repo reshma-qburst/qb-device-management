@@ -1,0 +1,41 @@
+<!-- Add device component template -->
+<div class="add_device_form_wrapper">
+    <h1>Add New Device</h1>
+    <div>
+        <div class="add-device-form-div">
+            <form [formGroup]="addDeviceForm" (ngSubmit)="addDevice(addDeviceForm)" #f="ngForm" novalidate id="addDeviceForm">
+                <div class="form-group" [ngClass]="{'has-error': addDeviceForm.submitted && !addDeviceForm.controls['devicename'].valid}">
+                    <label for="devicename">Device Name:</label>
+                    <input type="text" class="form-control" [formControl]="addDeviceForm.controls['devicename']" required autofocus/>
+                    <p *ngIf="addDeviceForm.submitted && addDeviceForm.controls['devicename'].hasError('required')" class="text-danger">Device Name Required</p>
+                </div>
+                <div class="form-group" [ngClass]="{'has-error': addDeviceForm.submitted && !addDeviceForm.controls['devicesize'].valid}">
+                    <label for="devicesize">Device Size:</label>
+                    <input type="text" class="form-control" [formControl]="addDeviceForm.controls['devicesize']" required/>
+                    <p *ngIf="addDeviceForm.submitted && addDeviceForm.controls['devicesize'].hasError('required')" class="text-danger">Device Size Required</p>
+                </div>
+                <div class="form-group" [ngClass]="{'has-error': addDeviceForm.submitted && !addDeviceForm.controls['devicetype'].valid}">
+                    <label for="devicetype">Device Type:</label>
+                    <select class="form-control" (change)="onSelect($event.target.value)" [formControl]="addDeviceForm.controls['devicetype']" required>
+                        <option *ngFor="let d of devicetypelist" [value]="d.id">{{d.device_type}}</option>
+                    </select>
+                    <p *ngIf="addDeviceForm.submitted && addDeviceForm.controls['devicetype'].hasError('required')" class="text-danger">Device Type Required</p>
+                </div>
+                <div class="form-group" [ngClass]="{'has-error': addDeviceForm.submitted && !addDeviceForm.controls['deviceid'].valid}">
+                    <label for="deviceid">Device ID:</label>
+                    <input type="text" class="form-control" [formControl]="addDeviceForm.controls['deviceid']" required/>
+                    <p *ngIf="addDeviceForm.submitted && addDeviceForm.controls['deviceid'].hasError('required')" class="text-danger">Device Id Required</p>
+                </div>
+                <div class="form-group" [ngClass]="{'has-error': addDeviceForm.submitted && !addDeviceForm.controls['osVer'].valid}">
+                    <label for="osVer">OS Version</label>
+                    <input type="text" class="form-control" [formControl]="addDeviceForm.controls['osVer']" required>
+                    <p *ngIf="addDeviceForm.submitted && addDeviceForm.controls['osVer'].hasError('required')" class="text-danger">OS Version Required</p>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-save">Save</button>
+                    <button type="button" (click)="clearFields(addDeviceForm);" class="btn btn-save">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
