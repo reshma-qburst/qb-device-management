@@ -14,4 +14,9 @@ export class CommonService {
 	    	.map((res: Response) => res.json());
    }
 
+   callGetApi() {
+   		return this.http.get(this.config.apiEndPoint + "v1/devices/tags")
+		.map(response => response.json());
+   }
+
 }

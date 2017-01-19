@@ -29,7 +29,7 @@ export class DeviceAllocationComponent {
 		deviceallocation.submitted = true;
 		let value = deviceallocation.value;
 		if (deviceallocation.valid) {
-                
+        	console.log(deviceallocation);
         }
 	}
 
