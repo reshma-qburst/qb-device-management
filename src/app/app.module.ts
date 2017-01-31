@@ -32,9 +32,12 @@ import { NKDatetimeModule } from "../../node_modules/ng2-datetime/ng2-datetime";
 import { APP_CONFIG, AppConfig } from "./app.config";
 import { CommonService } from "./app.service";
 
+import { SearchDeviceComponent } from "./search/search.component";
+import { SearchDeviceService } from "./search/search.service";
+
 @NgModule({
   imports:      [ BrowserModule, FormsModule, routing, HttpModule, ReactiveFormsModule, DataTableModule, SharedModule, NKDatetimeModule ],
-  declarations: [ AppComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent, AccountSettingsComponent, HeaderComponent, FooterComponent, AddDeviceComponent, MenuComponent, DeviceAllocationComponent],
+  declarations: [ AppComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent, AccountSettingsComponent, HeaderComponent, FooterComponent, AddDeviceComponent, MenuComponent, DeviceAllocationComponent, SearchDeviceComponent],
   bootstrap:    [ AppComponent],
   providers: [
   AuthGuard, PreventLoggedInAccess,
@@ -42,6 +45,7 @@ import { CommonService } from "./app.service";
   MenuService,
   AdminDashboardService,
   CommonService,
+  SearchDeviceService,
     { provide: APP_BASE_HREF, useValue: window["_app_base"] || "/" },
     { provide: APP_CONFIG, useValue: AppConfig }
   ]

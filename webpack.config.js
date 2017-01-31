@@ -57,7 +57,8 @@ module.exports = function makeWebpackConfig() {
             },
             { test: /\.css$/, include: root('src', 'app'), loader: 'raw-loader!postcss-loader' },
             { test: /\.html$/, loader: 'raw-loader' },
-            { test: /\.(png|woff|woff2|eot|ttf|svg|gif)$/, loader: 'url-loader?limit=100000' }
+            { test: /\.(png|woff|woff2|svg|gif)$/, loader: 'url-loader?limit=100000' }, 
+            { test: /\.(eot|ttf|wav|mp3|pdf)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader' }
         ]
     };
 
@@ -94,6 +95,9 @@ module.exports = function makeWebpackConfig() {
         }),
         new ExtractTextPlugin({
             filename: 'node_modules/primeui/primeui-ng-all.min.css'
+        }),
+        new ExtractTextPlugin({
+            filename: 'node_modules/font-awesome/css/font-awesome.css'
         })
     );
 
@@ -106,19 +110,19 @@ module.exports = function makeWebpackConfig() {
     );
 
 
-/*    config.plugins.push(
-        new webpack.ProvidePlugin({
-            'window.jQuery': 'jquery',
-            'window.$': 'jquery',
-        })
-    );
-*/
+    /*    config.plugins.push(
+            new webpack.ProvidePlugin({
+                'window.jQuery': 'jquery',
+                'window.$': 'jquery',
+            })
+        );
+    */
 
-        /**
-         * Dev server configuration
-         * Reference: http://webpack.github.io/docs/configuration.html#devserver
-         * Reference: http://webpack.github.io/docs/webpack-dev-server.html
-         */
+    /**
+     * Dev server configuration
+     * Reference: http://webpack.github.io/docs/configuration.html#devserver
+     * Reference: http://webpack.github.io/docs/webpack-dev-server.html
+     */
     config.devServer = {
         contentBase: './src',
         historyApiFallback: true,

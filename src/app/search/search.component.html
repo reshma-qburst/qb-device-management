@@ -1,0 +1,11 @@
+<div class="search-wrapper">
+    <div>
+    	<h1>Search Devices</h1>
+        <article>
+            <p-dataTable [value]="searchDevicelist" [rows]="10" [paginator]="true" [rowsPerPageOptions]="[2,5,10]" sortMode="multiple" resizableColumns="true" [responsive]="true">
+                <header>Device List</header>
+                <p-column *ngFor="let col of cols"  [filter]="true" filterPlaceholder="Search" [field]="col.field" [header]="col.header" [sortable]="true"></p-column>
+            </p-dataTable>
+        </article>
+    </div>
+</div>

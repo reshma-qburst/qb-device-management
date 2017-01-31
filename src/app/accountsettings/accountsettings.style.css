@@ -62,8 +62,6 @@ article {
     width: 30%;
     display: block;
     margin: 0 auto;
-    border-left: 1px solid gray;
     margin-left: 170px;
-    padding: 1em;
     overflow: hidden;
 }
