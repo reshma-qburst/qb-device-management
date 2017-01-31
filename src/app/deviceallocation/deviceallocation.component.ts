@@ -3,6 +3,8 @@ import { FormBuilder, Validators, FormGroup, FormControl } from "@angular/forms"
 
 import "../../../node_modules/bootstrap-datepicker/js/bootstrap-datepicker.js";
 import { NKDatetimeModule } from "../../../node_modules/ng2-datetime/ng2-datetime";
+import { PassTableDataService } from "../search/passtabledata.service";
+import { TableData } from "../search/tableobject.model";
 
 @Component({
 selector: "deviceallocation",
@@ -13,16 +15,20 @@ styleUrls: ["./deviceallocation.style.css"]
 export class DeviceAllocationComponent {
 	
 	deviceallocation: FormGroup;
-	constructor(private formBuilder: FormBuilder) {
+	tableData: TableData;
+
+	constructor(private formBuilder: FormBuilder, private passTableDataService: PassTableDataService) {
+
+		this.tableData = passTableDataService.getData();
+
 		this.deviceallocation = new FormGroup({
-            employeename: new FormControl("", Validators.required),
-            employeeid: new FormControl("", Validators.required),
-            project: new FormControl("", Validators.required),
-            reportingmanager: new FormControl("", Validators.required),
-            deviceid: new FormControl("", Validators.required),
-            date: new FormControl("", Validators.required)
+            employeename: new FormControl(this.tableData.empName, Validators.required),
+            employeeid: new FormControl(this.tableData.empId, Validators.required),
+            project: new FormControl(this.tableData.project, Validators.required),
+            reportingmanager: new FormControl(this.tableData.reportMangr, Validators.required),
+            deviceid: new FormControl(this.tableData.deviceId, Validators.required),
+            date: new FormControl(this.tableData.createdDateFormated, Validators.required)
         });
-		
 	}
 
 	allocatedevice(deviceallocation) {
@@ -40,7 +46,7 @@ export class DeviceAllocationComponent {
 	    todayBtn: "linked",
 	    todayHighlight: true,
 	    assumeNearbyYear: true,
-	    format: "D, d MM yyyy"
+	    format: "d/M/yyyy"
 	}
 
 	clearFields(deviceallocation) {

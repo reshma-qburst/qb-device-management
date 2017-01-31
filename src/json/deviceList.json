@@ -2,30 +2,39 @@
     "id": 1,
     "deviceName": "MICROMAX Funbook",
     "deviceId": "QB/DROIDTAB/9",
-    "screenSize": "5",
+    "screenSize": 5.5,
     "deviceType": "Android Tablet",
     "osVersion": 5.0,
     "availability": "In Use",
     "email": "shahina@qburst.com",
-    "empId": 1690
+    "empId": 1690,
+    "empName": "Shahina",
+    "project": "PrivateFly",
+    "reportMangr":"AjithRaj"
 }, {
     "id": 2,
     "deviceName": "Samsung",
     "deviceId": "QB/DROIDPH/1",
-    "screenSize": "6",
+    "screenSize": 6,
     "deviceType": "Android Phone",
     "osVersion": 5.0,
     "availability": "Available",
     "email": "",
-    "empId": ""
+    "empId": "",
+    "empName": "",
+    "project": "",
+    "reportMangr":""
 }, {
     "id": 3,
     "deviceName": "IPhone 6S",
     "deviceId": "QB/IPHONE/2",
-    "screenSize": "6",
+    "screenSize": 6,
     "deviceType": "IPhone",
     "osVersion": 6.0,
     "availability": "Available",
     "email": "",
-    "empId": ""
+    "empId": "",
+    "empName": "",
+    "project": "",
+    "reportMangr":""
 }]

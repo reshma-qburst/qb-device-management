@@ -15,10 +15,7 @@ export class SearchDeviceService {
     }
 
   	searchDeviceList() {
-  		// return this.commonservice.callPostApi("v1/users/login", formData);
-  		return this.http.get("../json/deviceList.json")
-		.map(response => response.json());
-
+  		return this.commonservice.callGetApi("v1/allocation");
 	}
 
 }

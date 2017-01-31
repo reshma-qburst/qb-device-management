@@ -33,8 +33,7 @@ loadAssets() {
 	this.assetService.getAssetsList()
 	               .subscribe(assetList => {
 	this.assetList = assetList;
-		//console.log(assetList);
-	            });
+});
 
 	this.cols = [
 		{ field: "deviceCount", header: "Total Devices" },
