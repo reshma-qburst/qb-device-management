@@ -26,7 +26,6 @@ export class DeviceAllocationComponent {
 		private passTableDataService: PassTableDataService,
 		private localstorage: LocalstorageService) {
 
-		debugger;
 		this.tableData = passTableDataService.getData();
 		if (JSON.parse(localstorage.getUser()).roleType === 3 && this.tableData.empName === "") {
 			this.employeeName = JSON.parse(localstorage.getUser()).empName;
