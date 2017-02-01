@@ -5,6 +5,7 @@ import "../../../node_modules/bootstrap-datepicker/js/bootstrap-datepicker.js";
 import { NKDatetimeModule } from "../../../node_modules/ng2-datetime/ng2-datetime";
 import { PassTableDataService } from "../search/passtabledata.service";
 import { TableData } from "../search/tableobject.model";
+import { LocalstorageService } from "../login/localstorage.service";
 
 @Component({
 selector: "deviceallocation",
@@ -16,18 +17,40 @@ export class DeviceAllocationComponent {
 	
 	deviceallocation: FormGroup;
 	tableData: TableData;
+	isDisableFields = false;
+	isDisable = false;
+	employeeName: String ;
+	employeeId: number ;
 
-	constructor(private formBuilder: FormBuilder, private passTableDataService: PassTableDataService) {
+	constructor(private formBuilder: FormBuilder,
+		private passTableDataService: PassTableDataService,
+		private localstorage: LocalstorageService) {
 
+		debugger;
 		this.tableData = passTableDataService.getData();
+		if (JSON.parse(localstorage.getUser()).roleType === 3 && this.tableData.empName === "") {
+			this.employeeName = JSON.parse(localstorage.getUser()).empName;
+			this.employeeId = JSON.parse(localstorage.getUser()).empId;
+		}else if (JSON.parse(localstorage.getUser()).roleType === 1 || this.tableData.empName !== "") {
+			this.employeeName = this.tableData.empName;
+			this.employeeId = this.tableData.empId;
+		}
+
+		if (this.employeeName !== ""  && this.tableData.roleType === 3) {
+			this.isDisableFields = true;
+			this.isDisable = true;
+		}else if (this.employeeName !== "") {
+			this.isDisable = true;
+			this.isDisableFields = false;
+		}
 
 		this.deviceallocation = new FormGroup({
-            employeename: new FormControl(this.tableData.empName, Validators.required),
-            employeeid: new FormControl(this.tableData.empId, Validators.required),
-            project: new FormControl(this.tableData.project, Validators.required),
-            reportingmanager: new FormControl(this.tableData.reportMangr, Validators.required),
-            deviceid: new FormControl(this.tableData.deviceId, Validators.required),
-            date: new FormControl(this.tableData.createdDateFormated, Validators.required)
+            employeename: new FormControl({value: this.employeeName, disabled: this.isDisable}, Validators.required),
+            employeeid: new FormControl({value: this.employeeId, disabled: this.isDisable}, Validators.required),
+            project: new FormControl({value: this.tableData.project, disabled: this.isDisableFields}, Validators.required),
+            reportingmanager: new FormControl({value: this.tableData.reportMangr, disabled: this.isDisableFields}, Validators.required),
+            deviceid: new FormControl({value: this.tableData.deviceQBId, disabled: true}, Validators.required),
+            date: new FormControl({value: this.tableData.createdDateFormated, disabled: this.isDisableFields}, Validators.required)
         });
 	}
 

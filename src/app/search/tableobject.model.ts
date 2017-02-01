@@ -1,5 +1,5 @@
 export interface TableData {
-   deviceId: number;
+   deviceQBId: number;
    deviceName: string;
    screenSize: number;
    deviceType: string;
@@ -11,4 +11,5 @@ export interface TableData {
    project: string;
    reportMangr: string;
    createdDateFormated: Date;
+   roleType: number;
 }
