@@ -27,18 +27,21 @@ export class DeviceAllocationComponent {
 		private localstorage: LocalstorageService) {
 
 		this.tableData = passTableDataService.getData();
-		if (JSON.parse(localstorage.getUser()).roleType === 3 && this.tableData.empName === "") {
+		if (JSON.parse(localstorage.getUser()).roleType === 3) {
 			this.employeeName = JSON.parse(localstorage.getUser()).empName;
 			this.employeeId = JSON.parse(localstorage.getUser()).empId;
-		}else if (JSON.parse(localstorage.getUser()).roleType === 1 || this.tableData.empName !== "") {
+		}else if (JSON.parse(localstorage.getUser()).roleType === 1 && this.tableData.availability === 1) {
 			this.employeeName = this.tableData.empName;
 			this.employeeId = this.tableData.empId;
 		}
 
-		if (this.employeeName !== ""  && this.tableData.roleType === 3) {
+		if (this.tableData.availability === 1 ) {
 			this.isDisableFields = true;
 			this.isDisable = true;
-		}else if (this.employeeName !== "") {
+		}else if (JSON.parse(localstorage.getUser()).roleType === 1 && this.tableData.availability === 0) {
+			this.isDisable = false;
+			this.isDisableFields = false;
+		}else if (JSON.parse(localstorage.getUser()).roleType === 3 && this.tableData.availability === 0) {
 			this.isDisable = true;
 			this.isDisableFields = false;
 		}
@@ -48,7 +51,7 @@ export class DeviceAllocationComponent {
             employeeid: new FormControl({value: this.employeeId, disabled: this.isDisable}, Validators.required),
             project: new FormControl({value: this.tableData.project, disabled: this.isDisableFields}, Validators.required),
             reportingmanager: new FormControl({value: this.tableData.reportMangr, disabled: this.isDisableFields}, Validators.required),
-            deviceid: new FormControl({value: this.tableData.deviceQBId, disabled: true}, Validators.required),
+            deviceid: new FormControl({value: this.tableData.deviceId, disabled: true}, Validators.required),
             date: new FormControl({value: this.tableData.createdDateFormated, disabled: this.isDisableFields}, Validators.required)
         });
 	}

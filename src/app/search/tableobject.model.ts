@@ -1,10 +1,11 @@
 export interface TableData {
-   deviceQBId: number;
+   deviceId: number;
    deviceName: string;
    screenSize: number;
    deviceType: string;
    osVersion: string;
    availability: number;
+   availabilityLabel: string;
    email: string;
    empName: string;
    empId: number;

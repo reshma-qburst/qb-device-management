@@ -4,12 +4,12 @@
         <article>
             <p-dataTable [value]="searchDevicelist" [rows]="10" [paginator]="true" [rowsPerPageOptions]="[2,5,10]" sortMode="single" resizableColumns="true" [responsive]="true" selectionMode="single" [(selection)]="selectedRow" (onRowClick)="handleRowClick($event)">
                 <header>Device List</header>
-                <p-column field="deviceQBId" header="Device ID" [filter]="true" filterPlaceholder="Search" [sortable]="true"></p-column>
+                <p-column field="deviceId" header="Device ID" [filter]="true" filterPlaceholder="Search" [sortable]="true"></p-column>
                 <p-column field="deviceName" header="Device Name" [filter]="true" filterPlaceholder="Search" [sortable]="true"></p-column>
                 <p-column field="screenSize" header="Device Size" [filter]="true" filterPlaceholder="Search" [sortable]="true"></p-column>
                 <p-column field="deviceType" header="Device Type" [filter]="true" filterPlaceholder="Search" [sortable]="true"></p-column>
                 <p-column field="osVersion" header="OS Version" [filter]="true" filterPlaceholder="Search" [sortable]="true"></p-column>
-                <p-column field="activeAllocationLabel" header="Availability" [filter]="true" filterPlaceholder="Search" [sortable]="true"></p-column>
+                <p-column field="availabilityLabel" header="Availability" [filter]="true" filterPlaceholder="Search" [sortable]="true"></p-column>
                 <p-column field="email" header="Assigned To" [sortable]="true"></p-column>
             </p-dataTable>
         </article>

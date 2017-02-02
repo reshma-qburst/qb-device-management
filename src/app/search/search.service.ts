@@ -14,13 +14,8 @@ export class SearchDeviceService {
              // config.apiEndPoint can be used now
     }
 
- /* 	searchDeviceList() {
-  		return this.commonservice.callGetApi("v1/allocation");
-	}*/
-
 	searchDeviceList() {
-  		return this.http.get("../json/deviceList.json")
- 	.map(response => response.json());
+  		return this.commonservice.callGetApi("v1/devices/status");
  	}
 
 }
