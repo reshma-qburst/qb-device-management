@@ -35,7 +35,7 @@ import { CommonService } from "./app.service";
 import { SearchDeviceComponent } from "./search/search.component";
 import { SearchDeviceService } from "./search/search.service";
 import { PassTableDataService } from "./search/passtabledata.service";
-
+import { DeviceAllocationService } from "./deviceallocation/deviceallocation.service";
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, routing, HttpModule, ReactiveFormsModule, DataTableModule, SharedModule, NKDatetimeModule ],
@@ -49,6 +49,7 @@ import { PassTableDataService } from "./search/passtabledata.service";
   CommonService,
   SearchDeviceService,
   PassTableDataService,
+  DeviceAllocationService,
     { provide: APP_BASE_HREF, useValue: window["_app_base"] || "/" },
     { provide: APP_CONFIG, useValue: AppConfig }
   ]
