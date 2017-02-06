@@ -20,4 +20,8 @@ export class DeviceAllocationService {
  		return this.commonservice.callPostApi("v1/allocation/release", formData);
  	}
 
+ 	getUserList() {
+ 		return this.commonservice.callGetApi("v1/users");
+ 	}
+
 }

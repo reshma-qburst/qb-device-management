@@ -20,7 +20,8 @@ export class CommonService {
    }
 
    parseDateString(dateString) {
-   	return (new Date(dateString)).getFullYear() , (new Date(dateString).getMonth() , new Date(dateString).getDate()) ;
+      var d = new Date(dateString);
+   	return (new Date(d.getFullYear(), d.getMonth() + 1, d.getDate())) ;
    }
 
 }

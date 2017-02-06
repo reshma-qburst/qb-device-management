@@ -9,6 +9,7 @@ import { LocalstorageService } from "../login/localstorage.service";
 import { CommonService } from "../app.service";
 import { DeviceAllocationService } from "./deviceallocation.service";
 import { Router } from "@angular/router";
+import { AutoCompleteModule } from "primeng/primeng";
 
 @Component({
 selector: "deviceallocation",
@@ -26,6 +27,9 @@ export class DeviceAllocationComponent {
 	empId: number ;
 	buttonDisable = true;
 	allocId: number;
+	employeeNameList: any[];
+	empNameListHolder: [any];
+	dateCreated: Date;
 
 	constructor(private formBuilder: FormBuilder,
 		private passTableDataService: PassTableDataService,
@@ -72,14 +76,14 @@ export class DeviceAllocationComponent {
 		if (this.tableData.allocId != null) {
 			this.allocId = this.tableData.allocId;
 		}
-
+		this.dateCreated = this.commonservice.parseDateString(this.tableData.createdDate);
 		this.deviceallocation = new FormGroup({
             empName: new FormControl(this.empName, Validators.required),
             empId: new FormControl(this.empId, Validators.required),
             project: new FormControl(this.tableData.project, Validators.required),
             reportMangr: new FormControl(this.tableData.reportMangr, Validators.required),
             qbdeviceId: new FormControl(this.tableData.deviceId, Validators.required),
-            dateOfAllocation: new FormControl({value: this.commonservice.parseDateString(this.tableData.createdDate), disabled: this.isDisableFields}, Validators.required),
+            dateOfAllocation: new FormControl({value: this.dateCreated, disabled: this.isDisableFields}, Validators.required),
             deviceId: new FormControl(this.tableData.id),
             userId: new FormControl(JSON.parse(localstorage.getUser()).id),
             allocId: new FormControl(this.allocId)
@@ -135,4 +139,16 @@ export class DeviceAllocationComponent {
 		deviceallocation.reset();
 		deviceallocation.submitted = false; // remove form errors as well.
 	}
+
+ 	handleDropdownClick() {
+ 		this.employeeNameList = [];
+        this.deviceallocationservice.getUserList()
+		.subscribe(deviceList => {
+	        this.empNameListHolder = deviceList.result;
+	         for (let i = 0; i < this.empNameListHolder.length; i++) {
+	         	let employeeName = this.empNameListHolder[i];
+	         	this.employeeNameList.push(employeeName.empName);
+	         }
+	    });
+    }
 } 
