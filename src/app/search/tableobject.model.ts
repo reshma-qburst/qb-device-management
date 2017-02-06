@@ -11,6 +11,10 @@ export interface TableData {
    empId: number;
    project: string;
    reportMangr: string;
-   createdDateFormated: Date;
+   createdDate: number;
    roleType: number;
+   id: number;
+   userId: number;
+   qbdeviceId: number;
+   allocId: number;
 }

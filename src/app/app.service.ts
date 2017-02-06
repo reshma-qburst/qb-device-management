@@ -19,4 +19,9 @@ export class CommonService {
 		.map(response => response.json());
    }
 
+   parseDateString(dateString) {
+      var d = new Date(dateString);
+   	return (new Date(d.getFullYear(), d.getMonth() + 1, d.getDate())) ;
+   }
+
 }

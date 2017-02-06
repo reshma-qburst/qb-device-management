@@ -19,7 +19,7 @@ import { LocalstorageService } from "./login/localstorage.service";
 import { AccountSettingsComponent } from "./accountsettings/accountsettings.component";
 import { AdminDashboardService } from "./admindashboard/admindashboard.service";
 
-import { DataTableModule, SharedModule } from "primeng/primeng";
+import { DataTableModule, SharedModule, AutoCompleteModule } from "primeng/primeng";
 
 import { MenuComponent }  from "./shared/menu/menu.component";
 import { MenuService } from "./shared/menu/menu.service";
@@ -35,10 +35,10 @@ import { CommonService } from "./app.service";
 import { SearchDeviceComponent } from "./search/search.component";
 import { SearchDeviceService } from "./search/search.service";
 import { PassTableDataService } from "./search/passtabledata.service";
-
+import { DeviceAllocationService } from "./deviceallocation/deviceallocation.service";
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, routing, HttpModule, ReactiveFormsModule, DataTableModule, SharedModule, NKDatetimeModule ],
+  imports:      [ BrowserModule, FormsModule, routing, HttpModule, ReactiveFormsModule, DataTableModule, SharedModule, NKDatetimeModule, AutoCompleteModule ],
   declarations: [ AppComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent, AccountSettingsComponent, HeaderComponent, FooterComponent, AddDeviceComponent, MenuComponent, DeviceAllocationComponent, SearchDeviceComponent],
   bootstrap:    [ AppComponent],
   providers: [
@@ -49,6 +49,7 @@ import { PassTableDataService } from "./search/passtabledata.service";
   CommonService,
   SearchDeviceService,
   PassTableDataService,
+  DeviceAllocationService,
     { provide: APP_BASE_HREF, useValue: window["_app_base"] || "/" },
     { provide: APP_CONFIG, useValue: AppConfig }
   ]
