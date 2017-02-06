@@ -28,8 +28,9 @@ export class DeviceAllocationComponent {
 	buttonDisable = true;
 	allocId: number;
 	employeeNameList: any[];
-	empNameListHolder: [any];
+	empListHolder: [any];
 	dateCreated: Date;
+	userId: number;
 
 	constructor(private formBuilder: FormBuilder,
 		private passTableDataService: PassTableDataService,
@@ -103,7 +104,7 @@ export class DeviceAllocationComponent {
                        this.router.navigate(["/searchdevice"]);
                     }
                     else {
-                        
+                       alert("Some issue has occured!"); 
                     }
                 });
 
@@ -116,7 +117,7 @@ export class DeviceAllocationComponent {
                        this.router.navigate(["/searchdevice"]);
                     }
                     else {
-                        
+                        alert("Some issue has occured!");
                     }
                 });
         	}
@@ -144,11 +145,20 @@ export class DeviceAllocationComponent {
  		this.employeeNameList = [];
         this.deviceallocationservice.getUserList()
 		.subscribe(deviceList => {
-	        this.empNameListHolder = deviceList.result;
-	         for (let i = 0; i < this.empNameListHolder.length; i++) {
-	         	let employeeName = this.empNameListHolder[i];
-	         	this.employeeNameList.push(employeeName.empName);
+	        this.empListHolder = deviceList.result;
+	         for (let i = 0; i < this.empListHolder.length; i++) {
+	         	let employeeObj = this.empListHolder[i];
+	         	this.employeeNameList.push({
+	         		name : employeeObj.empName,
+	         		id: employeeObj.id,
+	         		empid: employeeObj.empId
+	         	});
 	         }
 	    });
+    }
+
+    filterEmpList(event) {
+    	this.userId = event.id;
+    	this.empId = event.empid;
     }
 } 

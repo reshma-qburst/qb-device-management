@@ -4,14 +4,15 @@
     <div>
         <div class="device-allocation-form-div">
             <form [formGroup]="deviceallocation" (ngSubmit)="allocatedevice(deviceallocation)" #f="ngForm" novalidate id="deviceallocation">
-                <div class="form-group" [ngClass]="{'has-error': deviceallocation.submitted}">
+                <div class="form-group" [ngClass]="{'has-error': deviceallocation.submitted && !deviceallocation.controls['empName'].valid}">
                     <label for="empName">Employee Name:</label>
-                    <p-autoComplete [formControl]="deviceallocation.controls['empName']" [suggestions]="employeeNameList" [size]="30" [minLength]="1" placeholder="Select User" [dropdown]="true" (onDropdownClick)="handleDropdownClick($event)" [readonly]="isDisable ? true : null">
+                    <p-autoComplete [formControl]="deviceallocation.controls['empName']" [suggestions]="employeeNameList" field="name" [size]="30" [minLength]="1" placeholder="Select User" [dropdown]="true" (onDropdownClick)="handleDropdownClick($event)" [disabled]="isDisable ? true : null"
+                    (onSelect)="filterEmpList($event)">
                     </p-autoComplete>
                 </div>
                 <div class="form-group" [ngClass]="{'has-error': deviceallocation.submitted && !deviceallocation.controls['empId'].valid}">
                     <label for="empId">Employee ID:</label>
-                    <input type="text" class="form-control" [formControl]="deviceallocation.controls['empId']" required [readonly]="isDisable ? true : null" />
+                    <input [(ngModel)]="empId" type="text" class="form-control" [formControl]="deviceallocation.controls['empId']" required [readonly]="isDisable ? true : null" />
                     <p *ngIf="deviceallocation.submitted && deviceallocation.controls['empId'].hasError('required')" class="text-danger">Employee ID required</p>
                 </div>
                 <div class="form-group" [ngClass]="{'has-error': deviceallocation.submitted && !deviceallocation.controls['project'].valid}">
@@ -29,9 +30,9 @@
                     <input type="text" class="form-control" [formControl]="deviceallocation.controls['qbdeviceId']" required readonly/>
                     <p *ngIf="deviceallocation.submitted && deviceallocation.controls['qbdeviceId'].hasError('required')" class="text-danger">Device ID Required</p>
                 </div>
-                <div class="form-group">
+                <div class="form-group" [ngClass]="{'has-error': deviceallocation.submitted && !deviceallocation.controls['dateOfAllocation'].valid}">
                     <label for="dateOfAllocation">Date Allocated:</label>
-                    <datetime [hasClearButton]="true" [timepicker]="false" [(ngModel)]="dateCreated" [datepicker]="datepickerOptions" [formControl]="deviceallocation.controls['dateOfAllocation']"></datetime>
+                    <datetime [hasClearButton]="true" [timepicker]="false" [(ngModel)]="dateCreated" [datepicker]="datepickerOptions" [formControl]="deviceallocation.controls['dateOfAllocation']" [readonly]="isDisableFields ? true : null"></datetime>
                     <p *ngIf="deviceallocation.submitted && deviceallocation.controls['dateOfAllocation'].hasError('required')" class="text-danger">Date Required</p>
                 </div>
                 <div class="form-group">
@@ -42,7 +43,7 @@
                     <input type="hidden" class="form-control" [formControl]="deviceallocation.controls['deviceId']" />
                 </div>
                 <div class="form-group">
-                    <input type="hidden" class="form-control" [formControl]="deviceallocation.controls['userId']" />
+                    <input [(ngModel)]="userId" type="hidden" class="form-control" [formControl]="deviceallocation.controls['userId']" />
                 </div>
                 <div class="form-group">
                     <input type="hidden" class="form-control" [formControl]="deviceallocation.controls['allocId']" />
